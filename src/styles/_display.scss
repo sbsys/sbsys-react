@@ -1,0 +1,14 @@
+/* display flex */
+.flex {
+	display: flex;
+
+	&-horizontal {
+		@extend .flex;
+		flex-direction: row;
+	}
+
+	&-vertical {
+		@extend .flex;
+		flex-direction: column;
+	}
+}

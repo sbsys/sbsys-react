@@ -1,0 +1,43 @@
+/* screen width media query */
+@mixin screen-width($break-point) {
+	@if not map-get($break-points, $break-point) {
+		@error "No media screen #{$break-point}";
+	}
+
+	@media only screen and (min-width: "#{map-get($break-points-rem, $break-point)}rem") {
+		@content;
+	}
+}
+
+/* screen height media query */
+@mixin screen-height($break-point) {
+	@if not map-get($break-points, $break-point) {
+		@error "No media screen #{$break-point}";
+	}
+
+	@media only screen and (min-height: "#{map-get($break-points-rem, $break-point)}rem") {
+		@content;
+	}
+}
+
+/* component min width */
+@mixin min-width($break-point) {
+	@if not map-get($break-points, $break-point) {
+		@error "No media screen #{$break-point}";
+	}
+
+	&[min-width*='-#{$break-point}-'] {
+		@content;
+	}
+}
+
+/* component min height */
+@mixin min-width($break-point) {
+	@if not map-get($break-points, $break-point) {
+		@error "No media screen #{$break-point}";
+	}
+
+	&[min-height*='-#{$break-point}-'] {
+		@content;
+	}
+}

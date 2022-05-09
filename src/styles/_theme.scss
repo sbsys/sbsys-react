@@ -4,7 +4,7 @@
 		@error "No media theme #{$theme}";
 	}
 
-	.#{map-get($themes, $theme)} & {
+	.theme--#{map-get($themes, $theme)} & {
 		@content;
 	}
 }

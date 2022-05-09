@@ -1,0 +1,24 @@
+/* apply theme */
+@mixin theme($theme) {
+	@if not map-get($themes, $theme) {
+		@error "No media theme #{$theme}";
+	}
+
+	.#{map-get($themes, $theme)} & {
+		@content;
+	}
+}
+
+/* dark color scheme */
+@mixin dark {
+	@media (prefers-color-scheme: dark) {
+		@content;
+	}
+}
+
+/* light color scheme */
+@mixin light {
+	@media (prefers-color-scheme: light) {
+		@content;
+	}
+}

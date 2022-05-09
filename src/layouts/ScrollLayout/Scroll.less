@@ -1,0 +1,35 @@
+@import 'styles';
+
+.scroll-layout {
+	@apply flex-grow flex overflow-hidden;
+	scrollbar-color: theme('colors.light.text.weak') theme('colors.light.base.weak');
+	scrollbar-width: thin;
+
+	@include theme(dark) {
+		scrollbar-color: theme('colors.dark.text.weak') theme('colors.dark.base.weak');
+	}
+
+	/* Custom scrollbar */
+	&::-webkit-scrollbar {
+		@apply bg-light-base-weak rounded-vent-md w-vent-md h-vent-md;
+
+		@include theme(dark) {
+			@apply bg-dark-base-weak;
+		}
+	}
+	&::-webkit-scrollbar-thumb {
+		@apply bg-light-text-weak rounded-vent-md;
+
+		@include theme(dark) {
+			@apply bg-dark-text-weak;
+		}
+	}
+
+	&--horizontal {
+		@apply flex-row overflow-x-auto;
+	}
+
+	&--vertical {
+		@apply flex-col overflow-y-auto;
+	}
+}

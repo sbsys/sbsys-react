@@ -1,0 +1,70 @@
+/* Breakpoint definition */
+$breakpoints: (
+	xs6: 320,
+	xs5: 384,
+	xs4: 448,
+	xs3: 512,
+	xs2: 576,
+	xs: 640,
+	sm: 704,
+	md: 768,
+	lg: 896,
+	xl: 1024,
+	xl2: 1152,
+	xl3: 1280,
+	xl4: 1408,
+	xl5: 1536,
+	xl6: 1664,
+);
+
+$breakpoints-rem: (
+	/* 20rem */ xs6: 320 / 16,
+	/* 24rem */ xs5: 384 / 16,
+	/* 28rem */ xs4: 448 / 16,
+	/* 32rem */ xs3: 512 / 16,
+	/* 36rem */ xs2: 576 / 16,
+	/* 40rem */ xs: 640 / 16,
+	/* 44rem */ sm: 704 / 16,
+	/* 48rem */ md: 768 / 16,
+	/* 48 + 8 = 56rem */ lg: 896 / 16,
+	/* 64rem */ xl: 1024 / 16,
+	/* 72rem */ xl2: 1152 / 16,
+	/* 80rem */ xl3: 1280 / 16,
+	/* 88rem */ xl4: 1408 / 16,
+	/* 96rem */ xl5: 1536 / 16,
+	/* 104rem */ xl6: 1664 / 16,
+	/* xl7: 1856 / 16, 104 + 12 = 116rem */
+);
+
+/* screen media query */
+@mixin screen($breakpoint) {
+	@if not map-get($breakpoints-rem, $breakpoint) {
+		@error "No media screen #{$breakpoint}";
+	}
+
+	@media only screen and (min-width: "#{map-get($breakpoints-rem, $breakpoint)}rem") {
+		@content;
+	}
+}
+
+/* screen height media query */
+@mixin screen-height($breakpoint) {
+	@if not map-get($breakpoints-rem, $breakpoint) {
+		@error "No media screen #{$breakpoint}";
+	}
+
+	@media only screen and (min-height: "#{map-get($breakpoints-rem, $breakpoint)}rem") {
+		@content;
+	}
+}
+
+/* component min width */
+@mixin min-width($breakpoint) {
+	@if not map-get($breakpoints, $breakpoint) {
+		@error "No media screen #{$breakpoint}";
+	}
+
+	&[min-width*='-#{$breakpoint}-'] {
+		@content;
+	}
+}

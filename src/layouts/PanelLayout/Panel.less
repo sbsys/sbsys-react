@@ -1,0 +1,61 @@
+@import 'styles';
+
+.panel-layout {
+	$main: &;
+
+	@apply flex border-transparent;
+
+	&--horizontal {
+		@apply flex-row;
+	}
+
+	&--vertical {
+		@apply flex-col;
+	}
+
+	&--container {
+		@apply overflow-hidden flex-grow;
+	}
+
+	&--intensity-none {
+		@apply bg-transparent;
+	}
+
+	@each $intensity in $intensities {
+		&--intensity-#{$intensity} {
+			@apply bg-light-base-#{$intensity};
+
+			@include theme(dark) {
+				@apply bg-dark-base-#{$intensity};
+			}
+		}
+
+		@each $serie in $series {
+			&--#{$serie}#{$main}--intensity-#{$intensity} {
+				@apply border-light-#{$serie}-#{$intensity};
+
+				@include theme(dark) {
+					@apply border-dark-#{$serie}-#{$intensity};
+				}
+			}
+		}
+	}
+
+	@each $space in $spaces {
+		&--padding-#{$space} {
+			@apply p-vent-#{$space};
+		}
+
+		&--margin-#{$space} {
+			@apply m-element-#{$space};
+		}
+
+		&--border-#{$space} {
+			@apply border-line-#{$space};
+		}
+
+		&--rounded-#{$space} {
+			@apply rounded-text-#{$space};
+		}
+	}
+}

@@ -1,0 +1,17 @@
+export enum BreakPointsType {
+	XS6 = 'xs6',
+	XS5 = 'xs5',
+	XS4 = 'xs4',
+	XS3 = 'xs3',
+	XS2 = 'xs2',
+	XS = 'xs',
+	SM = 'sm',
+	MD = 'md',
+	LG = 'lg',
+	XL = 'xl',
+	XL2 = 'xl2',
+	XL3 = 'xl3',
+	XL4 = 'xl4',
+	XL5 = 'xl5',
+	XL6 = 'xl6',
+}

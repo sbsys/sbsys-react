@@ -1,0 +1,75 @@
+/* Normalize definition */
+@mixin normalize {
+	html {
+		font-size: 12px;
+
+		@include screen-height(xs) {
+			font-size: 13px;
+		}
+
+		@include screen-height(sm) {
+			font-size: 14px;
+		}
+
+		@include screen-height(md) {
+			font-size: 15px;
+		}
+
+		@include screen-height(lg) {
+			font-size: 16px;
+		}
+	}
+
+	*,
+	::before,
+	::after {
+		-webkit-tap-highlight-color: transparent;
+		@apply m-0 p-0 leading-tight;
+		font-size: inherit;
+		font-weight: inherit;
+	}
+
+	/* focus */
+	*:focus {
+		@apply outline-none;
+	}
+
+	/* body */
+	body {
+		@apply flex flex-col;
+		@apply font-roboto font-normal;
+		@apply inset-0 fixed overflow-hidden;
+		@apply text-light-text-main bg-light-base-main;
+		@apply text-text-md leading-text-lg;
+
+		@include theme(dark) {
+			@apply text-dark-text-main bg-dark-base-main;
+		}
+	}
+
+	/* root */
+	#root {
+		@apply flex flex-col;
+		@apply flex-grow overflow-hidden;
+	}
+
+	/* modal */
+	#modal {
+		z-index: 101;
+	}
+
+	/* loader */
+	#loader {
+		z-index: 102;
+	}
+
+	/* notification */
+	#notification {
+		z-index: 103;
+	}
+
+	/* icons */
+	i {
+		@apply flex flex-col justify-center items-center;
+	}
+}

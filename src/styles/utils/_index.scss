@@ -1,0 +1,67 @@
+/* imports */
+@import 'display';
+@import 'normalize';
+
+/* display module */
+%flex {
+	@include flex;
+}
+
+/* normalize module */
+%normalize {
+	@include normalize;
+}
+%dots {
+	@include dots;
+}
+
+@each $theme-key, $theme in $themes {
+	/* display module */
+	%#{$theme}-flex {
+		@include theme($theme) {
+			@include flex;
+		}
+	}
+
+	/* normalize module */
+	%#{$theme}-normalize {
+		@include normalize;
+	}
+	%#{$theme}-dots {
+		@include dots;
+	}
+}
+
+@each $break-point-key, $break-point in $break-points {
+	@include screen-width($break-point) {
+		/* display module */
+		%#{$break-point}-flex {
+			@include flex;
+		}
+
+		/* normalize module */
+		%#{$break-point}-normalize {
+			@include normalize;
+		}
+		%#{$break-point}-dots {
+			@include dots;
+		}
+
+		@each $theme-key, $theme in $themes {
+			/* display module */
+			%#{$theme}-#{$break-point}-flex {
+				@include theme($theme) {
+					@include flex;
+				}
+			}
+
+			/* normalize module */
+			%#{$theme}-#{$break-point}-normalize {
+				@include normalize;
+			}
+			%#{$theme}-#{$break-point}-dots {
+				@include dots;
+			}
+		}
+	}
+}

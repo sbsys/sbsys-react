@@ -1,5 +1,4 @@
 export enum SerieType {
-	NONE = 'none',
 	BASE = 'base',
 	PRIMARY = 'primary',
 	SECONDARY = 'secondary',
@@ -9,4 +8,16 @@ export enum SerieType {
 	SUCCESS = 'success',
 	WARNING = 'warning',
 	DANGER = 'danger',
+}
+
+export interface SerieKeyType {
+	base: string;
+	primary: string;
+	secondary: string;
+	tertiary: string;
+	accent: string;
+	info: string;
+	success: string;
+	warning: string;
+	danger: string;
 }

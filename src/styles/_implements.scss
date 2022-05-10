@@ -1,0 +1,10 @@
+/* display */
+@mixin implement-display-flex {
+	@extend %flex;
+
+	@each $orientation-key, $orientation in $orientations {
+		&--#{$orientation} {
+			@extend %flex-#{$orientation};
+		}
+	}
+}

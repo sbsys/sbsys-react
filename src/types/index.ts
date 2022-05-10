@@ -6,6 +6,6 @@ export * from './variant.type';
 export * from './input.type';
 export * from './alignment.type';
 export * from './propagation.type';
-export * from './orientation.type';
+export * from './orientations.type';
 export * from './intensity.type';
 export * from './position.type';

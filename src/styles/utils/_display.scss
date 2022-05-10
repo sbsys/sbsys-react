@@ -1,0 +1,24 @@
+/* display flex */
+@mixin flex {
+	display: flex;
+
+	&-horizontal {
+		flex-direction: row;
+	}
+
+	&-vertical {
+		flex-direction: column;
+	}
+}
+
+@mixin grid {
+	display: grid;
+
+	&-horizontal {
+		grid-template-columns: 1fr;
+	}
+
+	&-vertical {
+		grid-template-rows: 1fr;
+	}
+}

@@ -1,3 +1,40 @@
+$break-points-px: (
+	xs6: 320,
+	xs5: 384,
+	xs4: 448,
+	xs3: 512,
+	xs2: 576,
+	xs: 640,
+	sm: 704,
+	md: 768,
+	lg: 896,
+	xl: 1024,
+	xl2: 1152,
+	xl3: 1280,
+	xl4: 1408,
+	xl5: 1536,
+	xl6: 1664,
+);
+
+$break-points-rem: (
+	/* 20rem */ xs6: calc(320 / 16),
+	/* 24rem */ xs5: calc(384 / 16),
+	/* 28rem */ xs4: calc(448 / 16),
+	/* 32rem */ xs3: calc(512 / 16),
+	/* 36rem */ xs2: calc(576 / 16),
+	/* 40rem */ xs: calc(640 / 16),
+	/* 44rem */ sm: calc(704 / 16),
+	/* 48rem */ md: calc(768 / 16),
+	/* 48 + 8 = 56rem */ lg: calc(896 / 16),
+	/* 64rem */ xl: calc(1024 / 16),
+	/* 72rem */ xl2: calc(1152 / 16),
+	/* 80rem */ xl3: calc(1280 / 16),
+	/* 88rem */ xl4: calc(1408 / 16),
+	/* 96rem */ xl5: calc(1536 / 16),
+	/* 104rem */ xl6: calc(1664 / 16),
+	/* xl7: calc(1856 / 16); 104 + 12 = 116rem */
+);
+
 /* screen width media query */
 @mixin screen-width($break-point) {
 	@if not map-get($break-points, $break-point) {

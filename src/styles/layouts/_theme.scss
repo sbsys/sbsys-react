@@ -12,13 +12,17 @@
 /* dark color scheme */
 @mixin dark {
 	@media (prefers-color-scheme: dark) {
-		@content;
+		& {
+			@content;
+		}
 	}
 }
 
 /* light color scheme */
 @mixin light {
 	@media (prefers-color-scheme: light) {
-		@content;
+		& {
+			@content;
+		}
 	}
 }

@@ -1,0 +1,28 @@
+/* Normalize definition */
+@mixin normalize {
+	&,
+	&::before,
+	&::after {
+		-webkit-tap-highlight-color: transparent;
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: 1.25;
+		margin: 0;
+		padding: 0;
+	}
+
+	/* focus */
+	&:focus {
+		outline-offset: 2px;
+		outline: 2px solid transparent;
+	}
+}
+
+/* dots */
+@mixin dots {
+	& {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}

@@ -31,6 +31,15 @@ $sizes: (
 	lg: lg,
 	xl: xl,
 );
+$sizes-types: (
+	/* borders */ border: border,
+	/* element|text seperation */ split: split,
+	/* text sizes */ text: text,
+	/* element sizes */ element: element,
+	/* element separation */ space: space,
+	/* components */ component: component,
+	/* views */ view: view
+);
 
 /* series */
 $series: (

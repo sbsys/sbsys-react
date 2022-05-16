@@ -11,17 +11,3 @@ export enum InputType {
 	FIND_SELECT = 'find_select',
 	FIND_MODAL = 'find_modal',
 }
-
-export interface InputKeyType {
-	text: string;
-	password: string;
-	email: string;
-	number: string;
-	radio: string;
-	check: string;
-	file: string;
-	date: string;
-	select: string;
-	find_select: string;
-	find_modal: string;
-}

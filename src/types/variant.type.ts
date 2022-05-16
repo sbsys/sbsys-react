@@ -3,9 +3,3 @@ export enum VariantType {
 	TEXT = 'text',
 	OUTL = 'outl',
 }
-
-export interface VariantKeyType {
-	fill: string;
-	text: string;
-	outl: string;
-}

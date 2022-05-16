@@ -1,11 +1,7 @@
 /* types */
 import { BreakPointsType } from '../types';
 
-export const BreakPointsValue: Record<BreakPointsType, number> = {
-	/* [BreakPointsType.XS10]: 64,
-	[BreakPointsType.XS9]: 128,
-	[BreakPointsType.XS8]: 192,
-	[BreakPointsType.XS7]: 256, */
+export const BreakPointsPxValue: Record<BreakPointsType, number> = {
 	[BreakPointsType.XS6]: 320,
 	[BreakPointsType.XS5]: 384,
 	[BreakPointsType.XS4]: 448,
@@ -21,8 +17,22 @@ export const BreakPointsValue: Record<BreakPointsType, number> = {
 	[BreakPointsType.XL4]: 1408,
 	[BreakPointsType.XL5]: 1536,
 	[BreakPointsType.XL6]: 1664,
-	/* [BreakPointsType.XL7]: 1792,
-	[BreakPointsType.XL8]: 1920,
-	[BreakPointsType.XL9]: 2048,
-	[BreakPointsType.XL10]: 2176, */
+};
+
+export const BreakPointsRemValue: Record<BreakPointsType, number> = {
+	[BreakPointsType.XS6]: 20,
+	[BreakPointsType.XS5]: 24,
+	[BreakPointsType.XS4]: 28,
+	[BreakPointsType.XS3]: 32,
+	[BreakPointsType.XS2]: 36,
+	[BreakPointsType.XS]: 40,
+	[BreakPointsType.SM]: 44,
+	[BreakPointsType.MD]: 48,
+	[BreakPointsType.LG]: 56,
+	[BreakPointsType.XL]: 64,
+	[BreakPointsType.XL2]: 72,
+	[BreakPointsType.XL3]: 80,
+	[BreakPointsType.XL4]: 88,
+	[BreakPointsType.XL5]: 96,
+	[BreakPointsType.XL6]: 104,
 };

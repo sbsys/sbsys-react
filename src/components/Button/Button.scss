@@ -1,5 +1,9 @@
 @import '../../styles';
 
 .sbsys-button {
+	@extend %normalize;
+
 	@include implement-display-flex;
+
+	@include implement-size-gap(split);
 }

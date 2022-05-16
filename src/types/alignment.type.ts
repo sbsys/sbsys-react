@@ -3,9 +3,3 @@ export enum AlignmentType {
 	CENTER = 'center',
 	END = 'end',
 }
-
-export interface AlignmentKeyType {
-	start: string;
-	center: string;
-	end: string;
-}

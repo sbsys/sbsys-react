@@ -1,5 +1,5 @@
-import { IntensityType } from 'libs/types';
+import { IntensityType } from '../types';
 
-export default interface IntensityProps {
+export interface IntensityProps {
 	intensity?: IntensityType;
 }

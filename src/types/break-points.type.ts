@@ -15,21 +15,3 @@ export enum BreakPointsType {
 	XL5 = 'xl5',
 	XL6 = 'xl6',
 }
-
-export interface BreakPointsKeyType {
-	xs6: string;
-	xs5: string;
-	xs4: string;
-	xs3: string;
-	xs2: string;
-	xs: string;
-	sm: string;
-	md: string;
-	lg: string;
-	xl: string;
-	xl2: string;
-	xl3: string;
-	xl4: string;
-	xl5: string;
-	xl6: string;
-}

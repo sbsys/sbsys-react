@@ -1,5 +1,5 @@
-import { VariantType } from 'libs/types';
+import { VariantType } from '../types';
 
-export default interface VariantProps {
+export interface VariantProps {
 	variant?: VariantType;
 }

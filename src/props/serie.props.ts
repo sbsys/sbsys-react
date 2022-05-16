@@ -1,5 +1,5 @@
-import { SerieType } from 'libs/types';
+import { SerieType } from '../types';
 
-export default interface SerieProps {
+export interface SerieProps {
 	serie?: SerieType;
 }

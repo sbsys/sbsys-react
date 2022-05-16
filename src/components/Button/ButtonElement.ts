@@ -1,7 +1,12 @@
 /* react */
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
 /* props */
-import { ChildrenProps } from '../../props';
+import {
+	ChildrenProps,
+	DisplayFlexProps,
+	GapProps,
+	SizeProps,
+} from '../../props';
 
 interface SBSYSButtonParams {}
 
@@ -13,4 +18,7 @@ export interface SBSYSButtonElement
 			>,
 			'children'
 		>,
-		ChildrenProps<SBSYSButtonParams> {}
+		ChildrenProps<SBSYSButtonParams>,
+		DisplayFlexProps,
+		GapProps,
+		SizeProps {}

@@ -5,11 +5,3 @@ export enum IntensityType {
 	STRONG = 'strong',
 	STRONGEST = 'strongest',
 }
-
-export interface IntensityKeyType {
-	weakest: string;
-	weak: string;
-	main: string;
-	strong: string;
-	strongest: string;
-}

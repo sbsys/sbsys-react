@@ -1,10 +1,11 @@
 /* imports */
 @import 'display';
 @import 'normalize';
+@import 'sizes';
 
 /* display module */
-%flex {
-	@include flex;
+%display {
+	@include display;
 }
 
 /* normalize module */
@@ -15,11 +16,20 @@
 	@include dots;
 }
 
+/* sizes module */
+%sizes {
+	@each $sizes-type-key, $sizes-type-value in $sizes-types {
+		@include sizes($sizes-type-key);
+	}
+
+	@include lines;
+}
+
 @each $theme-key, $theme in $themes {
 	/* display module */
-	%#{$theme}-flex {
+	%#{$theme}-display {
 		@include theme($theme) {
-			@include flex;
+			@include display;
 		}
 	}
 
@@ -30,13 +40,22 @@
 	%#{$theme}-dots {
 		@include dots;
 	}
+
+	/* sizes module */
+	%#{$theme}-sizes {
+		@each $sizes-type-key, $sizes-type-value in $sizes-types {
+			@include sizes($sizes-type-key);
+		}
+
+		@include lines;
+	}
 }
 
 @each $break-point-key, $break-point in $break-points {
 	@include screen-width($break-point) {
 		/* display module */
-		%#{$break-point}-flex {
-			@include flex;
+		%#{$break-point}-display {
+			@include display;
 		}
 
 		/* normalize module */
@@ -47,11 +66,20 @@
 			@include dots;
 		}
 
+		/* sizes module */
+		%#{$break-point}-sizes {
+			@each $sizes-type-key, $sizes-type-value in $sizes-types {
+				@include sizes($sizes-type-key);
+			}
+
+			@include lines;
+		}
+
 		@each $theme-key, $theme in $themes {
 			/* display module */
-			%#{$theme}-#{$break-point}-flex {
+			%#{$theme}-#{$break-point}-display {
 				@include theme($theme) {
-					@include flex;
+					@include display;
 				}
 			}
 
@@ -61,6 +89,15 @@
 			}
 			%#{$theme}-#{$break-point}-dots {
 				@include dots;
+			}
+
+			/* sizes module */
+			%#{$theme}-#{$break-point}-sizes {
+				@each $sizes-type-key, $sizes-type-value in $sizes-types {
+					@include sizes($sizes-type-key);
+				}
+
+				@include lines;
 			}
 		}
 	}

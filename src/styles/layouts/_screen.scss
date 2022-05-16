@@ -69,7 +69,7 @@ $break-points-rem: (
 }
 
 /* component min height */
-@mixin min-width($break-point) {
+@mixin min-height($break-point) {
 	@if not map-get($break-points, $break-point) {
 		@error "No media screen #{$break-point}";
 	}

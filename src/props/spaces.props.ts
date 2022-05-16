@@ -1,10 +1,9 @@
-import { SpacesType } from 'libs/types';
+import { SizeType } from '../types';
 
-export default interface SpacesProps {
-	padding?: SpacesType;
-	margin?: SpacesType;
+export interface SizeProps {
+	padding?: SizeType;
+	margin?: SizeType;
 
-	borderWidth?: SpacesType;
-
-	rounded?: SpacesType;
+	borderWidth?: SizeType;
+	rounded?: SizeType;
 }

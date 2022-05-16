@@ -1,14 +1,14 @@
 /* react */
 import { MouseEvent } from 'react';
 /* utils */
-import { elementHasProps, getElementProp } from 'libs/utils';
+import { elementHasProps, getElementProp } from '../utils';
 /* types */
 import {
 	PropagationActionType,
 	PropagationPriorityType,
 	PropagationPropType,
 	PropagationTagType,
-} from 'libs/types';
+} from '../types';
 
 const getChildren = (ref: EventTarget & HTMLDivElement) =>
 	ref.querySelectorAll(

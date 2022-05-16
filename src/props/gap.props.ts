@@ -1,7 +1,7 @@
-import { SpacesType } from 'libs/types';
+import { SizeType } from '../types';
 
-export default interface GapProps {
-	gap?: SpacesType;
-	gapX?: SpacesType;
-	gapY?: SpacesType;
+export interface GapProps {
+	gap?: SizeType;
+	gapX?: SizeType;
+	gapY?: SizeType;
 }

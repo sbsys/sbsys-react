@@ -1,7 +1,7 @@
 /* types */
-import { PropagationActionType, PropagationPriorityType } from 'libs/types';
+import { PropagationActionType, PropagationPriorityType } from '../types';
 
-export default interface PropagationProps {
+export interface PropagationProps {
 	'propagation-priority'?: PropagationPriorityType;
 	'propagation-action'?: PropagationActionType;
 }

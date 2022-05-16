@@ -1,10 +1,38 @@
 /* display */
 @mixin implement-display-flex {
-	@extend %flex;
+	@extend %display-flex;
 
-	@each $orientation-key, $orientation in $orientations {
-		&--#{$orientation} {
-			@extend %flex-#{$orientation};
+	@each $orientation-key, $orientation-value in $orientations {
+		&--#{$orientation-value} {
+			@extend %display-flex-#{$orientation-value};
+		}
+	}
+
+	@each $alignment-key, $alignment-value in $alignments {
+		&--#{$alignment-value} {
+			@extend %display-flex-#{$alignment-value};
+		}
+	}
+}
+
+@mixin implement-size-gap($size-type) {
+	@if not map-has-key($sizes-values, $size-type) {
+		@error "No key '#{$size-type}' on sizes";
+	}
+
+	@each $size-key, $size-value in $sizes {
+		&-gap {
+			&--#{$size-key} {
+				@extend %sizes-gap--#{$size-type}-#{$size-key};
+			}
+
+			&-x--#{$size-key} {
+				@extend %sizes-gap-x--#{$size-type}-#{$size-key};
+			}
+
+			&-y--#{$size-key} {
+				@extend %sizes-gap-y--#{$size-type}-#{$size-key};
+			}
 		}
 	}
 }

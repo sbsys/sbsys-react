@@ -36,3 +36,41 @@
 		}
 	}
 }
+
+@mixin implement-size-padding($size-type) {
+	@if not map-has-key($sizes-values, $size-type) {
+		@error "No key '#{$size-type}' on sizes";
+	}
+
+	@each $size-key, $size-value in $sizes {
+		&-padding {
+			&--#{$size-key} {
+				@extend %sizes-padding--#{$size-type}-#{$size-key};
+			}
+
+			&-x--#{$size-key} {
+				@extend %sizes-padding-x--#{$size-type}-#{$size-key};
+			}
+
+			&-y--#{$size-key} {
+				@extend %sizes-padding-y--#{$size-type}-#{$size-key};
+			}
+		}
+	}
+}
+
+@mixin implement-size-border($size-type) {
+	@if not map-has-key($sizes-values, $size-type) {
+		@error "No key '#{$size-type}' on sizes";
+	}
+
+	@extend %sizes-border;
+
+	@each $size-key, $size-value in $sizes {
+		&-border {
+			&--#{$size-key} {
+				@extend %sizes-border--#{$size-type}-#{$size-key};
+			}
+		}
+	}
+}

@@ -28,4 +28,8 @@ Primary.args = {
 	gap: SizeType.MD,
 	gapX: SizeType.SM,
 	gapY: SizeType.LG,
+	padding: SizeType.MD,
+	paddingX: SizeType.LG,
+	paddingY: SizeType.SM,
+	borderWidth: SizeType.MD,
 };

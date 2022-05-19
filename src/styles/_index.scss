@@ -9,3 +9,6 @@
 
 /* import implements */
 @import 'implements';
+
+/* generate root css variables */
+@include generate-sizes;

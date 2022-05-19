@@ -20,6 +20,7 @@ const ALIGNMENT_MAP = classNameGenerator({
 	BASE_CLASS,
 	type: AlignmentType,
 });
+/* gap map */
 const GAP_MAP = classNameGenerator({
 	BASE_CLASS: `${BASE_CLASS}-gap`,
 	type: SizeType,
@@ -32,6 +33,24 @@ const GAP_Y_MAP = classNameGenerator({
 	BASE_CLASS: `${BASE_CLASS}-gap-y`,
 	type: SizeType,
 });
+/* padding map */
+const PADDING_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-padding`,
+	type: SizeType,
+});
+const PADDING_X_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-padding-x`,
+	type: SizeType,
+});
+const PADDING_Y_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-padding-y`,
+	type: SizeType,
+});
+/* border map */
+const BORDER_WIDTH_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-border`,
+	type: SizeType,
+});
 
 const Button: FC<SBSYSButtonElement> = ({
 	className,
@@ -42,9 +61,14 @@ const Button: FC<SBSYSButtonElement> = ({
 	gapX,
 	gapY,
 	padding,
-	margin,
+	paddingX,
+	paddingY,
 	borderWidth,
 	rounded,
+	roundedTop,
+	roundedBottom,
+	roundedLeft,
+	roundedRight,
 	...rest
 }) => {
 	return (
@@ -54,9 +78,16 @@ const Button: FC<SBSYSButtonElement> = ({
 					BASE_CLASS,
 					orientations && ORIENTATIONS_MAP[orientations],
 					alignment && ALIGNMENT_MAP[alignment],
+					/* gap */
 					gap && GAP_MAP[gap],
 					gapX && GAP_X_MAP[gapX],
 					gapY && GAP_Y_MAP[gapY],
+					/* padding */
+					padding && PADDING_MAP[padding],
+					paddingX && PADDING_X_MAP[paddingX],
+					paddingY && PADDING_Y_MAP[paddingY],
+					/* border */
+					borderWidth && BORDER_WIDTH_MAP[borderWidth],
 					className,
 				],
 			})}

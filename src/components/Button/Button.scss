@@ -6,4 +6,8 @@
 	@include implement-display-flex;
 
 	@include implement-size-gap(split);
+
+	@include implement-size-padding(split);
+
+	@include implement-size-border(border);
 }

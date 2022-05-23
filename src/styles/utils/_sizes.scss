@@ -115,8 +115,32 @@ $sizes-values: (
 		}
 
 		@each $size-key, $size-value in $sizes {
+			&-left--#{$size-type}-#{$size-key} {
+				padding-left: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-right--#{$size-type}-#{$size-key} {
+				padding-right: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
 			&-y--#{$size-type}-#{$size-key} {
 				padding-top: var(--sbsys-size-#{$size-type}-#{$size-key});
+				padding-bottom: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-top--#{$size-type}-#{$size-key} {
+				padding-top: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-bottom--#{$size-type}-#{$size-key} {
 				padding-bottom: var(--sbsys-size-#{$size-type}-#{$size-key});
 			}
 		}
@@ -137,8 +161,32 @@ $sizes-values: (
 		}
 
 		@each $size-key, $size-value in $sizes {
+			&-left--#{$size-type}-#{$size-key} {
+				margin-left: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-right--#{$size-type}-#{$size-key} {
+				margin-right: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
 			&-y--#{$size-type}-#{$size-key} {
 				margin-top: var(--sbsys-size-#{$size-type}-#{$size-key});
+				margin-bottom: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-top--#{$size-type}-#{$size-key} {
+				margin-top: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-bottom--#{$size-type}-#{$size-key} {
 				margin-bottom: var(--sbsys-size-#{$size-type}-#{$size-key});
 			}
 		}
@@ -150,6 +198,104 @@ $sizes-values: (
 		@each $size-key, $size-value in $sizes {
 			&--#{$size-type}-#{$size-key} {
 				border-width: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-y--#{$size-type}-#{$size-key} {
+				border-top-width: var(--sbsys-size-#{$size-type}-#{$size-key});
+				border-bottom-width: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-top--#{$size-type}-#{$size-key} {
+				border-top-width: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-bottom--#{$size-type}-#{$size-key} {
+				border-bottom-width: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-x--#{$size-type}-#{$size-key} {
+				border-left-width: var(--sbsys-size-#{$size-type}-#{$size-key});
+				border-right-width: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-left--#{$size-type}-#{$size-key} {
+				border-left-width: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-right--#{$size-type}-#{$size-key} {
+				border-right-width: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+	}
+
+	&-rounded {
+		@each $size-key, $size-value in $sizes {
+			&--#{$size-type}-#{$size-key} {
+				border-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-top--#{$size-type}-#{$size-key} {
+				border-top-left-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+				border-top-right-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-bottom--#{$size-type}-#{$size-key} {
+				border-bottom-left-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+				border-bottom-right-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-left--#{$size-type}-#{$size-key} {
+				border-top-left-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+				border-bottom-left-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-right--#{$size-type}-#{$size-key} {
+				border-top-right-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+				border-bottom-right-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-top-left--#{$size-type}-#{$size-key} {
+				border-top-left-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-top-right--#{$size-type}-#{$size-key} {
+				border-top-right-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-bottom-right--#{$size-type}-#{$size-key} {
+				border-bottom-right-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
+			}
+		}
+
+		@each $size-key, $size-value in $sizes {
+			&-bottom-left--#{$size-type}-#{$size-key} {
+				border-bottom-left-radius: var(--sbsys-size-#{$size-type}-#{$size-key});
 			}
 		}
 	}

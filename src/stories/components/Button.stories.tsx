@@ -25,11 +25,24 @@ Primary.args = {
 	),
 	orientations: OrientationsType.HORIZONTAL,
 	alignment: AlignmentType.CENTER,
+	/* gap */
 	gap: SizeType.MD,
 	gapX: SizeType.SM,
 	gapY: SizeType.LG,
+	/* padding */
 	padding: SizeType.MD,
-	paddingX: SizeType.LG,
 	paddingY: SizeType.SM,
+	paddingTop: SizeType.LG,
+	paddingBottom: SizeType.MD,
+	paddingX: SizeType.LG,
+	paddingLeft: SizeType.LG,
+	paddingRight: SizeType.MD,
+	/* border width */
 	borderWidth: SizeType.MD,
+	borderWidthY: SizeType.SM,
+	borderWidthTop: SizeType.SM,
+	borderWidthBottom: SizeType.SM,
+	borderWidthX: SizeType.SM,
+	borderWidthLeft: SizeType.SM,
+	borderWidthRight: SizeType.SM,
 };

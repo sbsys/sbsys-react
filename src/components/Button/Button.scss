@@ -10,4 +10,6 @@
 	@include implement-size-padding(split);
 
 	@include implement-size-border(border);
+
+	@include implement-size-rounded(split);
 }

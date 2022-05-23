@@ -8,6 +8,7 @@ export * from './serie.props';
 export * from './padding.props';
 export * from './margin.props';
 export * from './rounded.props';
+export * from './border-width.props';
 export * from './size.props';
 export * from './variant.props';
 export * from './display-flex.props';

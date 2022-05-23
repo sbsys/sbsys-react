@@ -6,4 +6,9 @@ export interface RoundedProps {
 	roundedBottom?: SizeType;
 	roundedLeft?: SizeType;
 	roundedRight?: SizeType;
+
+	roundedTopLeft?: SizeType;
+	roundedTopRight?: SizeType;
+	roundedBottomRight?: SizeType;
+	roundedBottomLeft?: SizeType;
 }

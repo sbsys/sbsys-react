@@ -48,12 +48,28 @@
 				@extend %sizes-padding--#{$size-type}-#{$size-key};
 			}
 
+			&-y--#{$size-key} {
+				@extend %sizes-padding-y--#{$size-type}-#{$size-key};
+			}
+
+			&-top--#{$size-key} {
+				@extend %sizes-padding-top--#{$size-type}-#{$size-key};
+			}
+
+			&-bottom--#{$size-key} {
+				@extend %sizes-padding-bottom--#{$size-type}-#{$size-key};
+			}
+
 			&-x--#{$size-key} {
 				@extend %sizes-padding-x--#{$size-type}-#{$size-key};
 			}
 
-			&-y--#{$size-key} {
-				@extend %sizes-padding-y--#{$size-type}-#{$size-key};
+			&-left--#{$size-key} {
+				@extend %sizes-padding-left--#{$size-type}-#{$size-key};
+			}
+
+			&-right--#{$size-key} {
+				@extend %sizes-padding-right--#{$size-type}-#{$size-key};
 			}
 		}
 	}
@@ -70,6 +86,60 @@
 		&-border {
 			&--#{$size-key} {
 				@extend %sizes-border--#{$size-type}-#{$size-key};
+			}
+
+			&-y--#{$size-key} {
+				@extend %sizes-border-y--#{$size-type}-#{$size-key};
+			}
+
+			&-top--#{$size-key} {
+				@extend %sizes-border-top--#{$size-type}-#{$size-key};
+			}
+
+			&-bottom--#{$size-key} {
+				@extend %sizes-border-bottom--#{$size-type}-#{$size-key};
+			}
+
+			&-x--#{$size-key} {
+				@extend %sizes-border-x--#{$size-type}-#{$size-key};
+			}
+
+			&-left--#{$size-key} {
+				@extend %sizes-border-left--#{$size-type}-#{$size-key};
+			}
+
+			&-right--#{$size-key} {
+				@extend %sizes-border-right--#{$size-type}-#{$size-key};
+			}
+		}
+	}
+}
+
+@mixin implement-size-rounded($size-type) {
+	@if not map-has-key($sizes-values, $size-type) {
+		@error "No key '#{$size-type}' on sizes";
+	}
+
+	@each $size-key, $size-value in $sizes {
+		&-rounded {
+			&--#{$size-key} {
+				@extend %sizes-rounded--#{$size-type}-#{$size-key};
+			}
+
+			&-top--#{$size-key} {
+				@extend %sizes-rounded-top--#{$size-type}-#{$size-key};
+			}
+
+			&-bottom--#{$size-key} {
+				@extend %sizes-rounded-bottom--#{$size-type}-#{$size-key};
+			}
+
+			&-left--#{$size-key} {
+				@extend %sizes-rounded-left--#{$size-type}-#{$size-key};
+			}
+
+			&-right--#{$size-key} {
+				@extend %sizes-rounded-right--#{$size-type}-#{$size-key};
 			}
 		}
 	}

@@ -141,6 +141,22 @@
 			&-right--#{$size-key} {
 				@extend %sizes-rounded-right--#{$size-type}-#{$size-key};
 			}
+
+			&-top-left--#{$size-key} {
+				@extend %sizes-rounded-top-left--#{$size-type}-#{$size-key};
+			}
+
+			&-top-right--#{$size-key} {
+				@extend %sizes-rounded-top-right--#{$size-type}-#{$size-key};
+			}
+
+			&-bottom-right--#{$size-key} {
+				@extend %sizes-rounded-bottom-right--#{$size-type}-#{$size-key};
+			}
+
+			&-bottom-left--#{$size-key} {
+				@extend %sizes-rounded-bottom-left--#{$size-type}-#{$size-key};
+			}
 		}
 	}
 }

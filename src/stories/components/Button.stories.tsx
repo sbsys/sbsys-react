@@ -14,8 +14,8 @@ export default {
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
+export const Main = Template.bind({});
+Main.args = {
 	className: '',
 	children: () => (
 		<>
@@ -45,4 +45,14 @@ Primary.args = {
 	borderWidthX: SizeType.SM,
 	borderWidthLeft: SizeType.SM,
 	borderWidthRight: SizeType.SM,
+	/* rounded */
+	rounded: SizeType.MD,
+	roundedTop: SizeType.LG,
+	roundedBottom: SizeType.LG,
+	roundedLeft: SizeType.LG,
+	roundedRight: SizeType.LG,
+	roundedTopLeft: SizeType.LG,
+	roundedTopRight: SizeType.LG,
+	roundedBottomRight: SizeType.LG,
+	roundedBottomLeft: SizeType.LG,
 };

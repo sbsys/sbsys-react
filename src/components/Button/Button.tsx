@@ -168,6 +168,10 @@ const Button: FC<SBSYSButtonElement> = ({
 	roundedTopRight,
 	roundedBottomRight,
 	roundedBottomLeft,
+	/* serie props */
+	fillSerie,
+	outlineSerie,
+	textSerie,
 	...rest
 }) => {
 	return (

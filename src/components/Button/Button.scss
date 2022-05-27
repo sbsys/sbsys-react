@@ -1,7 +1,17 @@
 @import '../../styles';
 
 .sbsys-button {
-	@extend %normalize;
+	@extend %normalize,
+		%series-fill--light-secondary-main,
+		%series-outl--light-secondary-weak;
+
+	&:hover {
+		@extend %series-fill--light-secondary-strong;
+	}
+
+	&:active {
+		@extend %series-fill--light-secondary-weak;
+	}
 
 	@include implement-display-flex;
 

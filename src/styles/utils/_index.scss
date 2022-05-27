@@ -2,6 +2,7 @@
 @import 'display';
 @import 'normalize';
 @import 'sizes';
+@import 'series';
 
 /* display module */
 %display {
@@ -14,6 +15,11 @@
 }
 %dots {
 	@include dots;
+}
+
+%series {
+	@include series(light, primary);
+	@include series(light, secondary);
 }
 
 /* sizes module */

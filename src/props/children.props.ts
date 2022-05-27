@@ -2,5 +2,5 @@
 import { ReactNode } from 'react';
 
 export interface ChildrenProps<T> {
-	children?: ReactNode | ((params?: T) => ReactNode);
+	children?: ReactNode | ReactNode[] | ((params?: T) => ReactNode);
 }

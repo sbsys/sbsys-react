@@ -5,6 +5,7 @@ import {
 	ChildrenProps,
 	DisplayFlexProps,
 	GapProps,
+	SerieProps,
 	SizeProps,
 } from '../../props';
 
@@ -21,4 +22,5 @@ export interface SBSYSButtonElement
 		ChildrenProps<SBSYSButtonParams>,
 		DisplayFlexProps,
 		GapProps,
-		SizeProps {}
+		SizeProps,
+		SerieProps {}

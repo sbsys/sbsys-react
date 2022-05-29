@@ -1,0 +1,168 @@
+/* space padding */
+@mixin padding($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	padding: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin padding-x($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	padding-left: var(--sbsys-size-#{$size-type}-#{$size});
+	padding-right: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin padding-left($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	padding-left: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin padding-right($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	padding-right: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin padding-y($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	padding-top: var(--sbsys-size-#{$size-type}-#{$size});
+	padding-bottom: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin padding-top($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	padding-top: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin padding-bottom($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	padding-bottom: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin implement-padding(
+	$size-type,
+	$size-type-x,
+	$size-type-left,
+	$size-type-right,
+	$size-type-y,
+	$size-type-top,
+	$size-type-bottom
+) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-x) {
+		@error "No key '#{$size-type-x}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-left) {
+		@error "No key '#{$size-type-left}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-right) {
+		@error "No key '#{$size-type-right}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-y) {
+		@error "No key '#{$size-type-y}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-top) {
+		@error "No key '#{$size-type-top}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-bottom) {
+		@error "No key '#{$size-type-bottom}' on sizes types";
+	}
+
+	&-padding {
+		@each $current-size in map-values($sizes) {
+			&--#{$current-size} {
+				@include padding($size-type, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-x--#{$current-size} {
+				@include padding-x($size-type-x, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-left--#{$current-size} {
+				@include padding-left($size-type-left, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-right--#{$current-size} {
+				@include padding-right($size-type-right, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-y--#{$current-size} {
+				@include padding-y($size-type-y, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-top--#{$current-size} {
+				@include padding-top($size-type-top, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-bottom--#{$current-size} {
+				@include padding-bottom($size-type-bottom, $current-size);
+			}
+		}
+	}
+}

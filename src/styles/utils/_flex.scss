@@ -1,0 +1,52 @@
+/* display flex */
+@mixin flex {
+	display: flex;
+}
+
+@mixin flex-orientation($orientation) {
+	@if not map-has-key($orientations, $orientation) {
+		@error "No key '#{$orientation}' on orientations";
+	}
+
+	@if $orientation == horizontal {
+		flex-direction: row;
+	}
+
+	@if $orientation == vertical {
+		flex-direction: column;
+	}
+}
+
+@mixin flex-alignment($alignment) {
+	@if not map-has-key($alignments, $alignment) {
+		@error "No key '#{$alignment}' on alignments";
+	}
+
+	@if $alignment == start {
+		align-items: flex-start;
+	}
+
+	@if $alignment == center {
+		align-items: center;
+	}
+
+	@if $alignment == end {
+		align-items: flex-end;
+	}
+}
+
+@mixin implement-flex {
+	@include flex;
+
+	@each $current-orientation in map-values($orientations) {
+		&--#{$current-orientation} {
+			@include flex-orientation($current-orientation);
+		}
+	}
+
+	@each $current-alignment in map-values($alignments) {
+		&--#{$current-alignment} {
+			@include flex-alignment($current-alignment);
+		}
+	}
+}

@@ -1,3 +1,5 @@
+/* _________________________Dictionaries_________________________ */
+
 /* themes */
 $themes: (
 	light: light,
@@ -94,4 +96,68 @@ $positions: (
 	bottom: bottom,
 	left: left,
 	right: right,
+);
+
+/* _________________________Values_________________________ */
+
+/* lines height */
+$line: (
+	xs: 1,
+	sm: 1.125,
+	md: 1.25,
+	lg: 1.375,
+	xl: 1.5,
+);
+
+/* sizes */
+$sizes-values: (
+	border: (
+		xs: 0.0625,
+		sm: 0.09375,
+		md: 0.125,
+		lg: 0.15625,
+		xl: 0.1875,
+	),
+	split: (
+		xs: 0.125,
+		sm: 0.25,
+		md: 0.375,
+		lg: 0.5,
+		xl: 0.625,
+	),
+	text: (
+		xs: 0.75,
+		sm: 0.875,
+		md: 1,
+		lg: 1.25,
+		xl: 1.5,
+	),
+	element: (
+		xs: 2,
+		sm: 2.75,
+		md: 3.5,
+		lg: 4.25,
+		xl: 5,
+	),
+	space: (
+		xs: 0.5,
+		sm: 0.75,
+		md: 1,
+		lg: 1.5,
+		xl: 2,
+	),
+	component: (
+		xs: 8,
+		sm: 12,
+		md: 16,
+		lg: 20,
+		xl: 24,
+	),
+	view: (
+		xs: 40,
+		sm: 44,
+		md: 48,
+		lg: 56,
+		xl: 64,
+	),
 );

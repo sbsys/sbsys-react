@@ -1,25 +1,15 @@
 @import '../../styles';
 
 .sbsys-button {
-	@extend %normalize,
-		%series-fill--light-secondary-main,
-		%series-outl--light-secondary-weak;
+	@include implement-flex;
 
-	&:hover {
-		@extend %series-fill--light-secondary-strong;
-	}
+	@include implement-gap(split, split, split);
 
-	&:active {
-		@extend %series-fill--light-secondary-weak;
-	}
+	@include implement-padding(split, split, split, split, split, split, split);
 
-	@include implement-display-flex;
-
-	@include implement-size-gap(split);
-
-	@include implement-size-padding(split);
+	/* @include implement-size-padding(split);
 
 	@include implement-size-border(border);
 
-	@include implement-size-rounded(split);
+	@include implement-size-rounded(split); */
 }

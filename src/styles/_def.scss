@@ -100,6 +100,45 @@ $positions: (
 
 /* _________________________Values_________________________ */
 
+/* breakpoints px */
+$break-points-px: (
+	xs6: 320,
+	xs5: 384,
+	xs4: 448,
+	xs3: 512,
+	xs2: 576,
+	xs: 640,
+	sm: 704,
+	md: 768,
+	lg: 896,
+	xl: 1024,
+	xl2: 1152,
+	xl3: 1280,
+	xl4: 1408,
+	xl5: 1536,
+	xl6: 1664,
+);
+
+/* breakpoints rem */
+$break-points-rem: (
+	/* 20rem */ xs6: calc(320 / 16),
+	/* 24rem */ xs5: calc(384 / 16),
+	/* 28rem */ xs4: calc(448 / 16),
+	/* 32rem */ xs3: calc(512 / 16),
+	/* 36rem */ xs2: calc(576 / 16),
+	/* 40rem */ xs: calc(640 / 16),
+	/* 44rem */ sm: calc(704 / 16),
+	/* 48rem */ md: calc(768 / 16),
+	/* 48 + 8 = 56rem */ lg: calc(896 / 16),
+	/* 64rem */ xl: calc(1024 / 16),
+	/* 72rem */ xl2: calc(1152 / 16),
+	/* 80rem */ xl3: calc(1280 / 16),
+	/* 88rem */ xl4: calc(1408 / 16),
+	/* 96rem */ xl5: calc(1536 / 16),
+	/* 104rem */ xl6: calc(1664 / 16),
+	/* xl7: calc(1856 / 16); 104 + 12 = 116rem */
+);
+
 /* lines height */
 $line: (
 	xs: 1,
@@ -159,5 +198,173 @@ $sizes-values: (
 		md: 48,
 		lg: 56,
 		xl: 64,
+	),
+);
+
+/* opacities */
+$opacities: (
+	weakest: 0,
+	weak: 0.25,
+	main: 0.5,
+	strong: 0.75,
+	strongest: 1,
+);
+
+/* apply opacity */
+$apply-opacity: (
+	bg: bg,
+	text: text,
+	border-left: border-left,
+	border-right: border-right,
+	border-top: border-top,
+	border-bottom: border-bottom,
+	shadow: shadow,
+);
+
+/* series theme */
+$series-values: (
+	light: (
+		bg: (
+			weakest: #fefefe,
+			weak: #eaeaea,
+			main: #f4f4f4,
+			strong: #fefefe,
+			strongest: #fefefe,
+		),
+		text: (
+			weakest: #fefefe,
+			weak: #727272,
+			main: #3d3d3d,
+			strong: #080808,
+			strongest: #fefefe,
+		),
+		base: (
+			weakest: #fefefe,
+			weak: #4c5c6b,
+			main: #586b7d,
+			strong: #6b8196,
+			strongest: #fefefe,
+		),
+		primary: (
+			weakest: #fefefe,
+			weak: #2e678a,
+			main: #3577a0,
+			strong: #418fc0,
+			strongest: #321234,
+		),
+		secondary: (
+			weakest: #fefefe,
+			weak: #256f5a,
+			main: #2b8068,
+			strong: #37a687,
+			strongest: #fefefe,
+		),
+		accent: (
+			weakest: #fefefe,
+			weak: #463778,
+			main: #51408a,
+			strong: #634eaa,
+			strongest: #fefefe,
+		),
+		info: (
+			weakest: #fefefe,
+			weak: #417f8d,
+			main: #4c94a5,
+			strong: #60a6b6,
+			strongest: #fefefe,
+		),
+		success: (
+			weakest: #fefefe,
+			weak: #489c57,
+			main: #56b167,
+			strong: #6fbd7e,
+			strongest: #fefefe,
+		),
+		warning: (
+			weakest: #fefefe,
+			weak: #ba8d1c,
+			main: #daa520,
+			strong: #e2b33d,
+			strongest: #fefefe,
+		),
+		danger: (
+			weakest: #fefefe,
+			weak: #ba1830,
+			main: #d91c38,
+			strong: #e53650,
+			strongest: #fefefe,
+		),
+	),
+	dark: (
+		bg: (
+			weakest: #fefefe,
+			weak: #242424,
+			main: #141414,
+			strong: #0a0a0a,
+			strongest: #fefefe,
+		),
+		text: (
+			weakest: #fefefe,
+			weak: #a4a4a4,
+			main: #d2d2d2,
+			strong: #fefefe,
+			strongest: #fefefe,
+		),
+		base: (
+			weakest: #fefefe,
+			weak: #536576,
+			main: #62768a,
+			strong: #75899d,
+			strongest: #fefefe,
+		),
+		primary: (
+			weakest: #fefefe,
+			weak: #316e94,
+			main: #3a81ad,
+			strong: #4b95c3,
+			strongest: #fefefe,
+		),
+		secondary: (
+			weakest: #fefefe,
+			weak: #277660,
+			main: #2e8a70,
+			strong: #3aad8c,
+			strongest: #fefefe,
+		),
+		accent: (
+			weakest: #fefefe,
+			weak: #544290,
+			main: #624da8,
+			strong: #7763b7,
+			strongest: #fefefe,
+		),
+		info: (
+			weakest: #fefefe,
+			weak: #468899,
+			main: #549db0,
+			strong: #6cacbc,
+			strongest: #fefefe,
+		),
+		success: (
+			weakest: #fefefe,
+			weak: #469955,
+			main: #54b065,
+			strong: #6cbc7b,
+			strongest: #fefefe,
+		),
+		warning: (
+			weakest: #fefefe,
+			weak: #ca991e,
+			main: #e0ad2d,
+			strong: #e4b94c,
+			strongest: #fefefe,
+		),
+		danger: (
+			weakest: #fefefe,
+			weak: #c91a34,
+			main: #e32542,
+			strong: #e7455e,
+			strongest: #fefefe,
+		),
 	),
 );

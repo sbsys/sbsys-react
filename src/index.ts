@@ -1,3 +1,6 @@
+/* import styles */
+import './index.scss';
+
 /* import/export named SBSYS React lib */
 export * from './types';
 export * from './values';

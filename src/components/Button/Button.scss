@@ -7,9 +7,17 @@
 
 	@include implement-padding(split, split, split, split, split, split, split);
 
-	/* @include implement-size-padding(split);
+	@include implement-border(split, split, split, split, split, split, split);
 
-	@include implement-size-border(border);
-
-	@include implement-size-rounded(split); */
+	@include implement-rounded(
+		split,
+		split,
+		split,
+		split,
+		split,
+		split,
+		split,
+		split,
+		split
+	);
 }

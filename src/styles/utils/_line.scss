@@ -1,0 +1,18 @@
+/* space line */
+@mixin line($size) {
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	line-height: var(--sbsys-size-line-#{$size});
+}
+
+@mixin implement-line {
+	&-line {
+		@each $current-size in map-values($sizes) {
+			&--#{$current-size} {
+				@include line($current-size);
+			}
+		}
+	}
+}

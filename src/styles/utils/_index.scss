@@ -1,7 +1,16 @@
 /* imports */
-@import 'flex';
+/* generate variables */
+@import 'generate';
+/* normalize */
 @import 'normalize';
-@import 'gaps';
+/* display */
+@import 'flex';
+/* spaces */
+@import 'gap';
+@import 'margin';
 @import 'padding';
-@import 'sizes';
+@import 'border';
+@import 'rounded';
+@import 'line';
+/* series */
 @import 'series';

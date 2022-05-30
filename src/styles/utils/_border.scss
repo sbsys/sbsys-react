@@ -1,0 +1,170 @@
+/* space border */
+@mixin border($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	border-width: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin border-x($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	border-left-width: var(--sbsys-size-#{$size-type}-#{$size});
+	border-right-width: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin border-left($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	border-left-width: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin border-right($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	border-right-width: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin border-y($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	border-top-width: var(--sbsys-size-#{$size-type}-#{$size});
+	border-bottom-width: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin border-top($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	border-top-width: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin border-bottom($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	border-bottom-width: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin implement-border(
+	$size-type,
+	$size-type-x,
+	$size-type-left,
+	$size-type-right,
+	$size-type-y,
+	$size-type-top,
+	$size-type-bottom
+) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-x) {
+		@error "No key '#{$size-type-x}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-left) {
+		@error "No key '#{$size-type-left}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-right) {
+		@error "No key '#{$size-type-right}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-y) {
+		@error "No key '#{$size-type-y}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-top) {
+		@error "No key '#{$size-type-top}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-bottom) {
+		@error "No key '#{$size-type-bottom}' on sizes types";
+	}
+
+	border-style: solid;
+
+	&-border {
+		@each $current-size in map-values($sizes) {
+			&--#{$current-size} {
+				@include border($size-type, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-x--#{$current-size} {
+				@include border-x($size-type-x, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-left--#{$current-size} {
+				@include border-left($size-type-left, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-right--#{$current-size} {
+				@include border-right($size-type-right, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-y--#{$current-size} {
+				@include border-y($size-type-y, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-top--#{$current-size} {
+				@include border-top($size-type-top, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-bottom--#{$current-size} {
+				@include border-bottom($size-type-bottom, $current-size);
+			}
+		}
+	}
+}

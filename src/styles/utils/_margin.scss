@@ -1,0 +1,168 @@
+/* space margin */
+@mixin margin($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	margin: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin margin-x($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	margin-left: var(--sbsys-size-#{$size-type}-#{$size});
+	margin-right: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin margin-left($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	margin-left: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin margin-right($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	margin-right: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin margin-y($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	margin-top: var(--sbsys-size-#{$size-type}-#{$size});
+	margin-bottom: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin margin-top($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	margin-top: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin margin-bottom($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes, $size) {
+		@error "No key '#{$size}' on sizes";
+	}
+
+	margin-bottom: var(--sbsys-size-#{$size-type}-#{$size});
+}
+
+@mixin implement-margin(
+	$size-type,
+	$size-type-x,
+	$size-type-left,
+	$size-type-right,
+	$size-type-y,
+	$size-type-top,
+	$size-type-bottom
+) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-x) {
+		@error "No key '#{$size-type-x}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-left) {
+		@error "No key '#{$size-type-left}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-right) {
+		@error "No key '#{$size-type-right}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-y) {
+		@error "No key '#{$size-type-y}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-top) {
+		@error "No key '#{$size-type-top}' on sizes types";
+	}
+
+	@if not map-has-key($sizes-types, $size-type-bottom) {
+		@error "No key '#{$size-type-bottom}' on sizes types";
+	}
+
+	&-margin {
+		@each $current-size in map-values($sizes) {
+			&--#{$current-size} {
+				@include margin($size-type, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-x--#{$current-size} {
+				@include margin-x($size-type-x, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-left--#{$current-size} {
+				@include margin-left($size-type-left, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-right--#{$current-size} {
+				@include margin-right($size-type-right, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-y--#{$current-size} {
+				@include margin-y($size-type-y, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-top--#{$current-size} {
+				@include margin-top($size-type-top, $current-size);
+			}
+		}
+
+		@each $current-size in map-values($sizes) {
+			&-bottom--#{$current-size} {
+				@include margin-bottom($size-type-bottom, $current-size);
+			}
+		}
+	}
+}

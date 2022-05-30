@@ -1,15 +1,6 @@
 /* import definitions */
 @import 'def';
-
 /* import layouts */
 @import 'layouts';
-
 /* import utils */
 @import 'utils';
-
-/* import implements */
-@import 'implements';
-
-/* generate root css variables */
-@include generate-sizes;
-@include generate-series;

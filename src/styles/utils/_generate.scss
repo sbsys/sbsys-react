@@ -1,0 +1,32 @@
+/* generate css variables */
+@mixin generate {
+	html {
+		@each $category, $category-sizes in $sizes-values {
+			@each $category-size-key, $category-size-value in $category-sizes {
+				--sbsys-size-#{$category}-#{$category-size-key}: #{$category-size-value}rem;
+			}
+		}
+
+		@each $ln-key, $ln-value in $line {
+			--sbsys-size-line-#{$ln-key}: #{$ln-value};
+		}
+
+		@each $current-theme, $current-series in $series-values {
+			@each $current-serie, $current-intensities in $current-series {
+				@each $current-intensity-key,
+					$current-intensity-value in $current-intensities
+				{
+					--sbsys-serie-#{$current-theme}-#{$current-serie}-#{$current-intensity-key}: #{red(
+								$current-intensity-value
+							)},
+						#{green($current-intensity-value)},
+						#{blue($current-intensity-value)};
+				}
+			}
+		}
+
+		@each $current-apply-opacity in map-values($apply-opacity) {
+			--sbsys-serie-#{$current-apply-opacity}-opacity: 1;
+		}
+	}
+}

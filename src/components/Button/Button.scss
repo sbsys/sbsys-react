@@ -40,15 +40,22 @@
 	}
 	@include implement-outline-opacity;
 
+	@include implement-text(main);
+	@include implement-text-opacity;
+
 	&:hover#{$parent} {
 		@include implement-fill(strong);
 
 		@include implement-outline(strong);
+
+		@include implement-text(strong);
 	}
 
 	&:active#{$parent} {
 		@include implement-fill(weak);
 
 		@include implement-outline(weak);
+
+		@include implement-text(weak);
 	}
 }

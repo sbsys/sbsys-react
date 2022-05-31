@@ -1,0 +1,57 @@
+/* serie text */
+@mixin text($theme-type, $serie-type, $intensity-type) {
+	@if not map-has-key($themes, $theme-type) {
+		@error "No key '#{$theme-type}' on themes";
+	}
+
+	@if not map-has-key($series, $serie-type) {
+		@error "No key '#{$serie-type}' on series";
+	}
+
+	@if not map-has-key($intensities, $intensity-type) {
+		@error "No key '#{$intensity-type}' on intensities";
+	}
+
+	color: rgba(
+		var(--sbsys-serie-#{$theme-type}-#{$serie-type}-#{$intensity-type}),
+		var(--sbsys-serie-text-opacity)
+	);
+}
+
+@mixin text-opacity($size-type) {
+	@if not map-has-key($sizes, $size-type) {
+		@error "No key '#{$size-type}' on sizes";
+	}
+
+	--sbsys-serie-text-opacity: #{map-get($opacities, $size-type)};
+}
+
+@mixin implement-text($intensity-type) {
+	@if not map-has-key($intensities, $intensity-type) {
+		@error "No key '#{$intensity-type}' on intensities";
+	}
+
+	color: currentColor;
+
+	&-text {
+		@each $serie in map-values($series) {
+			&--#{$serie} {
+				@include text(light, $serie, $intensity-type);
+
+				@include theme(dark) {
+					@include text(dark, $serie, $intensity-type);
+				}
+			}
+		}
+	}
+}
+
+@mixin implement-text-opacity {
+	&-text-opacity {
+		@each $size in map-values($sizes) {
+			&--#{$size} {
+				@include text-opacity($size);
+			}
+		}
+	}
+}

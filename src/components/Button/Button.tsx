@@ -206,6 +206,16 @@ const OUTL_OPACITY_RIGHT_MAP = classNameGenerator({
 	type: SizeType,
 });
 
+/* text map */
+const TEXT_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-text`,
+	type: SerieType,
+});
+const TEXT_OPACITY_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-text-opacity`,
+	type: SizeType,
+});
+
 const Button: FC<SBSYSButtonElement> = ({
 	className,
 	children,
@@ -263,6 +273,7 @@ const Button: FC<SBSYSButtonElement> = ({
 	outlineOpacityRight,
 	/* text props */
 	textSerie,
+	textOpacity,
 	...rest
 }) => {
 	return (
@@ -328,6 +339,9 @@ const Button: FC<SBSYSButtonElement> = ({
 					outlineSerieRight && OUTL_RIGHT_MAP[outlineSerieRight],
 					outlineOpacityRight &&
 						OUTL_OPACITY_RIGHT_MAP[outlineOpacityRight],
+					/* text */
+					textSerie && TEXT_MAP[textSerie],
+					textOpacity && TEXT_OPACITY_MAP[textOpacity],
 					className,
 				],
 			})}

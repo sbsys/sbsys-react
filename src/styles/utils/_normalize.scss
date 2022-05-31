@@ -4,9 +4,9 @@
 	&::before,
 	&::after {
 		-webkit-tap-highlight-color: transparent;
+		@include line(md);
 		font-size: inherit;
 		font-weight: inherit;
-		line-height: 1.25;
 		margin: 0;
 		padding: 0;
 	}

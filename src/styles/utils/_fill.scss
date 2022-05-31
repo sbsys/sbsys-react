@@ -1,0 +1,37 @@
+/* serie fill */
+@mixin fill($theme-type, $serie-type, $intensity-type) {
+	@if not map-has-key($themes, $theme-type) {
+		@error "No key '#{$theme-type}' on themes";
+	}
+
+	@if not map-has-key($series, $serie-type) {
+		@error "No key '#{$serie-type}' on series";
+	}
+
+	@if not map-has-key($intensities, $intensity-type) {
+		@error "No key '#{$intensity-type}' on intensities";
+	}
+
+	background-color: rgba(
+		var(--sbsys-serie-#{$theme-type}-#{$serie-type}-#{$intensity-type}),
+		var(--sbsys-serie-bg-opacity)
+	);
+}
+
+@mixin implement-fill($intensity-type) {
+	@if not map-has-key($intensities, $intensity-type) {
+		@error "No key '#{$intensity-type}' on intensities";
+	}
+
+	&-fill {
+		@each $serie in map-values($series) {
+			&--#{$serie} {
+				@include fill(light, $serie, $intensity-type);
+
+				@include theme(dark) {
+					@include fill(dark, $serie, $intensity-type);
+				}
+			}
+		}
+	}
+}

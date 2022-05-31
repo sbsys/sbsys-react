@@ -1,6 +1,8 @@
 @import '../../styles';
 
 .sbsys-button {
+	$parent: &;
+
 	@include implement-flex;
 
 	@include implement-gap(split, split, split);
@@ -20,4 +22,14 @@
 		split,
 		split
 	);
+
+	@include implement-fill(main);
+
+	&:hover#{$parent} {
+		@include implement-fill(strong);
+	}
+
+	&:active#{$parent} {
+		@include implement-fill(weak);
+	}
 }

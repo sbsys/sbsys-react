@@ -1,4 +1,6 @@
 export enum SerieType {
+	BG = 'bg',
+	TEXT = 'text',
 	BASE = 'base',
 	PRIMARY = 'primary',
 	SECONDARY = 'secondary',

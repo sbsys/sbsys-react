@@ -43,14 +43,10 @@ $sizes-types: (
 	/* views */ view: view
 );
 
-/* colors */
-$colors: (
-	bg: bg,
-	text: text,
-);
-
 /* series */
 $series: (
+	bg: bg,
+	text: text,
 	base: base,
 	primary: primary,
 	secondary: secondary,

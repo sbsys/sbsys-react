@@ -5,7 +5,12 @@ import { SBSYSButtonElement } from './ButtonElement';
 /* utils */
 import { classNameGenerator, mergeStrings } from '../../utils';
 /* types */
-import { AlignmentType, OrientationsType, SizeType } from '../../types';
+import {
+	AlignmentType,
+	OrientationsType,
+	SerieType,
+	SizeType,
+} from '../../types';
 /* styles */
 import './Button.scss';
 
@@ -133,6 +138,12 @@ const ROUNDED_BOTTOM_LEFT_MAP = classNameGenerator({
 	type: SizeType,
 });
 
+/* fill map */
+const FILL_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-fill`,
+	type: SerieType,
+});
+
 const Button: FC<SBSYSButtonElement> = ({
 	className,
 	children,
@@ -215,6 +226,8 @@ const Button: FC<SBSYSButtonElement> = ({
 						ROUNDED_BOTTOM_RIGHT_MAP[roundedBottomRight],
 					roundedBottomLeft &&
 						ROUNDED_BOTTOM_LEFT_MAP[roundedBottomLeft],
+					/* fill */
+					fillSerie && FILL_MAP[fillSerie],
 					className,
 				],
 			})}

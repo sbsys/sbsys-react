@@ -7,22 +7,6 @@
 		@error "No key '#{$serie-type}' on series";
 	}
 
-	&-fill {
-		@each $intensity-key,
-			$intensity-value
-				in map-get($series-values, $theme-type, $serie-type)
-		{
-			&--#{$theme-type}-#{$serie-type}-#{$intensity-key} {
-				background-color: rgba(
-					var(
-						--sbsys-serie-#{$theme-type}-#{$serie-type}-#{$intensity-key}
-					),
-					var(--sbsys-serie-bg-opacity)
-				);
-			}
-		}
-	}
-
 	&-text {
 		@each $intensity-key,
 			$intensity-value

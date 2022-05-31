@@ -2,7 +2,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 /* components */
 import { Button } from '../../components';
-import { AlignmentType, OrientationsType, SizeType } from '../../types';
 /* styles */
 import '../../index.scss';
 

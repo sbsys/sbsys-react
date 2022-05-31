@@ -35,6 +35,7 @@ $sizes: (
 );
 $sizes-types: (
 	/* borders */ border: border,
+	/* border rounded */ rounded: rounded,
 	/* element|text seperation */ split: split,
 	/* text sizes */ text: text,
 	/* element sizes */ element: element,
@@ -149,17 +150,24 @@ $line: (
 $sizes-values: (
 	border: (
 		xs: 0.0625,
-		sm: 0.09375,
-		md: 0.125,
-		lg: 0.15625,
-		xl: 0.1875,
+		sm: 0.125,
+		md: 0.1875,
+		lg: 0.25,
+		xl: 0.3125,
+	),
+	rounded: (
+		xs: 0.25,
+		sm: 0.5,
+		md: 0.75,
+		lg: 1,
+		xl: 1.25,
 	),
 	split: (
 		xs: 0.125,
 		sm: 0.25,
-		md: 0.375,
-		lg: 0.5,
-		xl: 0.625,
+		md: 0.5,
+		lg: 0.75,
+		xl: 1,
 	),
 	text: (
 		xs: 0.75,

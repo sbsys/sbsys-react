@@ -10,20 +10,28 @@
 
 	@include implement-gap(split, split, split);
 
-	@include implement-padding(split, split, split, split, split, split, split);
+	@include implement-padding(space, space, space, space, space, space, space);
 
-	@include implement-border(split, split, split, split, split, split, split);
+	@include implement-border(
+		border,
+		border,
+		border,
+		border,
+		border,
+		border,
+		border
+	);
 
 	@include implement-rounded(
-		split,
-		split,
-		split,
-		split,
-		split,
-		split,
-		split,
-		split,
-		split
+		rounded,
+		rounded,
+		rounded,
+		rounded,
+		rounded,
+		rounded,
+		rounded,
+		rounded,
+		rounded
 	);
 
 	@include implement-fill(main);
@@ -35,7 +43,7 @@
 		}
 
 		&:active {
-			@include fill-opacity(sm);
+			@include fill-opacity(xs);
 		}
 	}
 	@include implement-outline-opacity;

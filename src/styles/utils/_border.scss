@@ -122,7 +122,9 @@
 		@error "No key '#{$size-type-bottom}' on sizes types";
 	}
 
+	border-color: transparent;
 	border-style: solid;
+	border-width: 0;
 
 	&-border {
 		@each $current-size in map-values($sizes) {

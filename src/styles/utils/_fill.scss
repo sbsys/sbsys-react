@@ -31,6 +31,8 @@
 		@error "No key '#{$intensity-type}' on intensities";
 	}
 
+	background-color: transparent;
+
 	&-fill {
 		@each $serie in map-values($series) {
 			&--#{$serie} {

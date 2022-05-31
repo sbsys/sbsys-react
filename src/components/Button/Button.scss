@@ -29,11 +29,26 @@
 	@include implement-fill(main);
 	@include implement-fill-opacity;
 
+	@include implement-outline(main) {
+		&:hover {
+			@include fill-opacity(xs);
+		}
+
+		&:active {
+			@include fill-opacity(sm);
+		}
+	}
+	@include implement-outline-opacity;
+
 	&:hover#{$parent} {
 		@include implement-fill(strong);
+
+		@include implement-outline(strong);
 	}
 
 	&:active#{$parent} {
 		@include implement-fill(weak);
+
+		@include implement-outline(weak);
 	}
 }

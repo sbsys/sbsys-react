@@ -148,6 +148,64 @@ const FILL_OPACITY_MAP = classNameGenerator({
 	type: SizeType,
 });
 
+/* outline */
+const OUTL_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl`,
+	type: SerieType,
+});
+const OUTL_Y_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-y`,
+	type: SerieType,
+});
+const OUTL_TOP_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-top`,
+	type: SerieType,
+});
+const OUTL_BOTTOM_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-bottom`,
+	type: SerieType,
+});
+const OUTL_X_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-x`,
+	type: SerieType,
+});
+const OUTL_LEFT_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-left`,
+	type: SerieType,
+});
+const OUTL_RIGHT_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-right`,
+	type: SerieType,
+});
+const OUTL_OPACITY_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl`,
+	type: SizeType,
+});
+const OUTL_OPACITY_Y_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-y`,
+	type: SizeType,
+});
+const OUTL_OPACITY_TOP_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-top`,
+	type: SizeType,
+});
+const OUTL_OPACITY_BOTTOM_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-bottom`,
+	type: SizeType,
+});
+const OUTL_OPACITY_X_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-x`,
+	type: SizeType,
+});
+const OUTL_OPACITY_LEFT_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-left`,
+	type: SizeType,
+});
+const OUTL_OPACITY_RIGHT_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-outl-right`,
+	type: SizeType,
+});
+
 const Button: FC<SBSYSButtonElement> = ({
 	className,
 	children,
@@ -183,10 +241,27 @@ const Button: FC<SBSYSButtonElement> = ({
 	roundedTopRight,
 	roundedBottomRight,
 	roundedBottomLeft,
-	/* serie props */
+	/* fill props */
 	fillSerie,
+	/* fill opacity props */
 	fillOpacity,
+	/* outline props */
 	outlineSerie,
+	outlineSerieY,
+	outlineSerieTop,
+	outlineSerieBottom,
+	outlineSerieX,
+	outlineSerieLeft,
+	outlineSerieRight,
+	/* outline opacity props */
+	outlineOpacity,
+	outlineOpacityY,
+	outlineOpacityTop,
+	outlineOpacityBottom,
+	outlineOpacityX,
+	outlineOpacityLeft,
+	outlineOpacityRight,
+	/* text props */
 	textSerie,
 	...rest
 }) => {
@@ -234,6 +309,25 @@ const Button: FC<SBSYSButtonElement> = ({
 					/* fill */
 					fillSerie && FILL_MAP[fillSerie],
 					fillOpacity && FILL_OPACITY_MAP[fillOpacity],
+					/* outline */
+					outlineSerie && OUTL_MAP[outlineSerie],
+					outlineOpacity && OUTL_OPACITY_MAP[outlineOpacity],
+					outlineSerieY && OUTL_Y_MAP[outlineSerieY],
+					outlineOpacityY && OUTL_OPACITY_Y_MAP[outlineOpacityY],
+					outlineSerieTop && OUTL_TOP_MAP[outlineSerieTop],
+					outlineOpacityTop &&
+						OUTL_OPACITY_TOP_MAP[outlineOpacityTop],
+					outlineSerieBottom && OUTL_BOTTOM_MAP[outlineSerieBottom],
+					outlineOpacityBottom &&
+						OUTL_OPACITY_BOTTOM_MAP[outlineOpacityBottom],
+					outlineSerieX && OUTL_X_MAP[outlineSerieX],
+					outlineOpacityX && OUTL_OPACITY_X_MAP[outlineOpacityX],
+					outlineSerieLeft && OUTL_LEFT_MAP[outlineSerieLeft],
+					outlineOpacityLeft &&
+						OUTL_OPACITY_LEFT_MAP[outlineOpacityLeft],
+					outlineSerieRight && OUTL_RIGHT_MAP[outlineSerieRight],
+					outlineOpacityRight &&
+						OUTL_OPACITY_RIGHT_MAP[outlineOpacityRight],
 					className,
 				],
 			})}

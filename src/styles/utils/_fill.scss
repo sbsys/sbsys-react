@@ -18,6 +18,14 @@
 	);
 }
 
+@mixin fill-opacity($size-type) {
+	@if not map-has-key($sizes, $size-type) {
+		@error "No key '#{$size-type}' on sizes";
+	}
+
+	--sbsys-serie-bg-opacity: #{map-get($opacities, $size-type)};
+}
+
 @mixin implement-fill($intensity-type) {
 	@if not map-has-key($intensities, $intensity-type) {
 		@error "No key '#{$intensity-type}' on intensities";
@@ -31,6 +39,16 @@
 				@include theme(dark) {
 					@include fill(dark, $serie, $intensity-type);
 				}
+			}
+		}
+	}
+}
+
+@mixin implement-fill-opacity {
+	&-fill {
+		@each $size in map-values($sizes) {
+			&--#{$size} {
+				@include fill-opacity($size);
 			}
 		}
 	}

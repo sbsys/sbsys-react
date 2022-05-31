@@ -143,6 +143,10 @@ const FILL_MAP = classNameGenerator({
 	BASE_CLASS: `${BASE_CLASS}-fill`,
 	type: SerieType,
 });
+const FILL_OPACITY_MAP = classNameGenerator({
+	BASE_CLASS: `${BASE_CLASS}-fill`,
+	type: SizeType,
+});
 
 const Button: FC<SBSYSButtonElement> = ({
 	className,
@@ -181,6 +185,7 @@ const Button: FC<SBSYSButtonElement> = ({
 	roundedBottomLeft,
 	/* serie props */
 	fillSerie,
+	fillOpacity,
 	outlineSerie,
 	textSerie,
 	...rest
@@ -228,6 +233,7 @@ const Button: FC<SBSYSButtonElement> = ({
 						ROUNDED_BOTTOM_LEFT_MAP[roundedBottomLeft],
 					/* fill */
 					fillSerie && FILL_MAP[fillSerie],
+					fillOpacity && FILL_OPACITY_MAP[fillOpacity],
 					className,
 				],
 			})}

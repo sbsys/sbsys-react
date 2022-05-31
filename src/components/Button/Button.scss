@@ -3,6 +3,9 @@
 .sbsys-button {
 	$parent: &;
 
+	@include normalize;
+	@include interactable;
+
 	@include implement-flex;
 
 	@include implement-gap(split, split, split);
@@ -24,6 +27,7 @@
 	);
 
 	@include implement-fill(main);
+	@include implement-fill-opacity;
 
 	&:hover#{$parent} {
 		@include implement-fill(strong);

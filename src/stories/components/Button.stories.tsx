@@ -57,4 +57,6 @@ Main.args = {
 	roundedTopRight: SizeType.LG,
 	roundedBottomRight: SizeType.LG,
 	roundedBottomLeft: SizeType.LG,
+	/* fill opacity */
+	fillOpacity: SizeType.XL,
 };

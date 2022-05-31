@@ -1,5 +1,6 @@
-import { SerieType } from '../types';
+import { SerieType, SizeType } from '../types';
 
 export interface FillSerieProps {
 	fillSerie?: SerieType;
+	fillOpacity?: SizeType;
 }

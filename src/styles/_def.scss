@@ -50,6 +50,7 @@ $series: (
 	base: base,
 	primary: primary,
 	secondary: secondary,
+	tertiary: tertiary,
 	accent: accent,
 	info: info,
 	success: success,
@@ -199,11 +200,11 @@ $sizes-values: (
 
 /* opacities */
 $opacities: (
-	weakest: 0,
-	weak: 0.25,
-	main: 0.5,
-	strong: 0.75,
-	strongest: 1,
+	xs: 0.2,
+	sm: 0.4,
+	md: 0.6,
+	lg: 0.8,
+	xl: 1,
 );
 
 /* apply opacity */
@@ -249,6 +250,13 @@ $series-values: (
 			strongest: #321234,
 		),
 		secondary: (
+			weakest: #fefefe,
+			weak: #256f5a,
+			main: #2b8068,
+			strong: #37a687,
+			strongest: #fefefe,
+		),
+		tertiary: (
 			weakest: #fefefe,
 			weak: #256f5a,
 			main: #2b8068,
@@ -321,6 +329,13 @@ $series-values: (
 			strongest: #fefefe,
 		),
 		secondary: (
+			weakest: #fefefe,
+			weak: #277660,
+			main: #2e8a70,
+			strong: #3aad8c,
+			strongest: #fefefe,
+		),
+		tertiary: (
 			weakest: #fefefe,
 			weak: #277660,
 			main: #2e8a70,

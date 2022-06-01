@@ -38,13 +38,13 @@
 	@include implement-fill-opacity;
 
 	@include implement-outline(main) {
-		&:hover {
+		/* &:hover {
 			@include fill-opacity(xs);
 		}
 
 		&:active {
 			@include fill-opacity(xs);
-		}
+		} */
 	}
 	@include implement-outline-opacity;
 

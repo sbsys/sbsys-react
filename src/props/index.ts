@@ -15,3 +15,4 @@ export * from './fill-serie.props';
 export * from './outline-serie.props';
 export * from './text-serie.props';
 export * from './serie.props';
+export * from './text-size.props';

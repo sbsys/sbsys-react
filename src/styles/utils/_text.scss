@@ -46,6 +46,28 @@
 	}
 }
 
+@mixin implement-text-intensity {
+	color: currentColor;
+
+	$parent: &;
+
+	&-text {
+		@each $serie in map-values($series) {
+			&--#{$serie}#{$parent}-text-intensity {
+				@each $intensity in map-values($intensities) {
+					&--#{$intensity} {
+						@include text(light, $serie, $intensity);
+
+						@include theme(dark) {
+							@include text(dark, $serie, $intensity);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 @mixin implement-text-opacity {
 	&-text-opacity {
 		@each $size in map-values($sizes) {

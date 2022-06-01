@@ -146,6 +146,15 @@ $line: (
 	xl: 1.5,
 );
 
+/* weights */
+$weights: (
+	xs: 100,
+	sm: 300,
+	md: 400,
+	lg: 700,
+	xl: 900,
+);
+
 /* sizes */
 $sizes-values: (
 	border: (
@@ -208,10 +217,10 @@ $sizes-values: (
 
 /* opacities */
 $opacities: (
-	xs: 0.2,
-	sm: 0.4,
-	md: 0.6,
-	lg: 0.8,
+	xs: 0.125,
+	sm: 0.25,
+	md: 0.5,
+	lg: 0.75,
 	xl: 1,
 );
 

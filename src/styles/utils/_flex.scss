@@ -35,6 +35,42 @@
 	}
 }
 
+@mixin flex-justify($alignment) {
+	@if not map-has-key($alignments, $alignment) {
+		@error "No key '#{$alignment}' on alignments";
+	}
+
+	@if $alignment == start {
+		justify-content: flex-start;
+	}
+
+	@if $alignment == center {
+		justify-content: center;
+	}
+
+	@if $alignment == end {
+		justify-content: flex-end;
+	}
+}
+
+@mixin flex-self-alignment($alignment) {
+	@if not map-has-key($alignments, $alignment) {
+		@error "No key '#{$alignment}' on alignments";
+	}
+
+	@if $alignment == start {
+		align-self: flex-start;
+	}
+
+	@if $alignment == center {
+		align-self: center;
+	}
+
+	@if $alignment == end {
+		align-self: flex-end;
+	}
+}
+
 @mixin implement-flex {
 	@include flex;
 
@@ -47,6 +83,22 @@
 	@each $current-alignment in map-values($alignments) {
 		&--#{$current-alignment} {
 			@include flex-alignment($current-alignment);
+		}
+	}
+}
+
+@mixin implement-flex-justify {
+	@each $current-alignment in map-values($alignments) {
+		&-content--#{$current-alignment} {
+			@include flex-justify($current-alignment);
+		}
+	}
+}
+
+@mixin implement-flex-self {
+	@each $current-alignment in map-values($alignments) {
+		&-self--#{$current-alignment} {
+			@include flex-self-alignment($current-alignment);
 		}
 	}
 }

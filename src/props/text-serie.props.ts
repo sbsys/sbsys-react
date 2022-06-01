@@ -1,6 +1,7 @@
-import { SerieType, SizeType } from '../types';
+import { IntensityType, SerieType, SizeType } from '../types';
 
 export interface TextSerieProps {
 	textSerie?: SerieType;
+	textIntensity?: IntensityType;
 	textOpacity?: SizeType;
 }

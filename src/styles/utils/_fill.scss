@@ -26,28 +26,26 @@
 	--sbsys-serie-bg-opacity: #{map-get($opacities, $size-type)};
 }
 
-@mixin implement-fill($intensity-type) {
-	@if not map-has-key($intensities, $intensity-type) {
-		@error "No key '#{$intensity-type}' on intensities";
-	}
-
-	background-color: transparent;
-
+@mixin implement-fill-intensity {
 	&-fill {
-		@each $serie in map-values($series) {
-			&--#{$serie} {
-				@include fill(light, $serie, $intensity-type);
+		$parent: &;
 
-				@include theme(dark) {
-					@include fill(dark, $serie, $intensity-type);
+		background-color: transparent;
+
+		@each $serie in map-values($series) {
+			&--#{$serie}#{$parent} {
+				@each $intensity in map-values($intensities) {
+					&--#{$intensity} {
+						@include fill(light, $serie, $intensity);
+
+						@include theme(dark) {
+							@include fill(dark, $serie, $intensity);
+						}
+					}
 				}
 			}
 		}
-	}
-}
 
-@mixin implement-fill-opacity {
-	&-fill {
 		@each $size in map-values($sizes) {
 			&--#{$size} {
 				@include fill-opacity($size);

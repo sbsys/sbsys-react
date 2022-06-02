@@ -52,3 +52,27 @@
 		opacity: 0.98;
 	}
 }
+
+@mixin implement-normalize {
+	&-base {
+		&--normalize {
+			@include normalize;
+		}
+
+		&--dots {
+			@include dots;
+		}
+
+		&--disabled {
+			@include disabled;
+		}
+
+		&--interactable {
+			@include interactable;
+		}
+
+		&--hidden {
+			overflow: hidden;
+		}
+	}
+}

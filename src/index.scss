@@ -1,4 +1,26 @@
-@import 'styles/index';
+@import 'styles';
 
 /* generate root css variables */
 @include generate;
+
+/* generate root css class */
+.sbsys {
+	/* base */
+	@include implement-normalize;
+
+	/* display */
+	@include implement-flex;
+
+	/* size */
+	@include implement-gap-size;
+	@include implement-padding-size;
+	@include implement-margin-size;
+	@include implement-border-size;
+	@include implement-rounded-size;
+	@include implement-font;
+	@include implement-line;
+
+	/* serie */
+	@include implement-fill-intensity;
+	@include implement-outline-intensity;
+}

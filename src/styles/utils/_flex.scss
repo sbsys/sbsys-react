@@ -72,25 +72,25 @@
 }
 
 @mixin implement-flex {
-	@include flex;
+	&-flex {
+		@include flex;
 
-	@each $current-orientation in map-values($orientations) {
-		&--#{$current-orientation} {
-			@include flex-orientation($current-orientation);
+		@each $current-orientation in map-values($orientations) {
+			&-orientation--#{$current-orientation} {
+				@include flex-orientation($current-orientation);
+			}
 		}
-	}
 
-	@each $current-alignment in map-values($alignments) {
-		&--#{$current-alignment} {
-			@include flex-alignment($current-alignment);
+		@each $current-alignment in map-values($alignments) {
+			&-alignment--#{$current-alignment} {
+				@include flex-alignment($current-alignment);
+			}
 		}
-	}
-}
 
-@mixin implement-flex-justify {
-	@each $current-alignment in map-values($alignments) {
-		&-content--#{$current-alignment} {
-			@include flex-justify($current-alignment);
+		@each $current-alignment in map-values($alignments) {
+			&-justify--#{$current-alignment} {
+				@include flex-justify($current-alignment);
+			}
 		}
 	}
 }

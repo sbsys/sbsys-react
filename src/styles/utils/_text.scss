@@ -47,13 +47,13 @@
 }
 
 @mixin implement-text-intensity {
-	color: currentColor;
-
-	$parent: &;
-
 	&-text {
+		$parent: &;
+
+		color: currentColor;
+
 		@each $serie in map-values($series) {
-			&--#{$serie}#{$parent}-text-intensity {
+			&--#{$serie}#{$parent} {
 				@each $intensity in map-values($intensities) {
 					&--#{$intensity} {
 						@include text(light, $serie, $intensity);
@@ -65,11 +65,7 @@
 				}
 			}
 		}
-	}
-}
 
-@mixin implement-text-opacity {
-	&-text-opacity {
 		@each $size in map-values($sizes) {
 			&--#{$size} {
 				@include text-opacity($size);

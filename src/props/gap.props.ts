@@ -1,7 +1,12 @@
-import { SizeType } from '../types';
+import { GroupSizeType, SizeType } from '../types';
 
 export interface GapProps {
-	gap?: SizeType;
-	gapX?: SizeType;
-	gapY?: SizeType;
+	gapGroup?: GroupSizeType;
+	gapSize?: SizeType;
+
+	gapGroupX?: GroupSizeType;
+	gapSizeX?: SizeType;
+
+	gapGroupY?: GroupSizeType;
+	gapSizeY?: SizeType;
 }

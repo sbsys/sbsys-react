@@ -1,20 +1,18 @@
 /* react */
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 /* props */
-import { ChildrenProps, TextSerieProps, TextSizeProps } from '../../props';
+import { ChildrenProps } from '../../props';
 /* types */
 import { AlignmentType } from '../../types';
 
-interface SBSYSTextParams {}
+interface SBSYSLegendParams {}
 
-export interface SBSYSTextElement
+export interface SBSYSLegendElement
 	extends Omit<
 			DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>,
 			'children'
 		>,
-		ChildrenProps<SBSYSTextParams>,
-		TextSerieProps,
-		TextSizeProps {
+		ChildrenProps<SBSYSLegendParams> {
 	justify?: AlignmentType;
 	hasDots?: boolean;
 }

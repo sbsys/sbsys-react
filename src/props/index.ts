@@ -16,3 +16,4 @@ export * from './outline-serie.props';
 export * from './text-serie.props';
 export * from './serie.props';
 export * from './text-size.props';
+export * from './normalize.props';

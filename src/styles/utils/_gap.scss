@@ -35,35 +35,37 @@
 	row-gap: var(--sbsys-size-#{$size-type}-#{$size});
 }
 
-@mixin implement-gap($size-type, $size-type-x, $size-type-y) {
-	@if not map-has-key($sizes-types, $size-type) {
-		@error "No key '#{$size-type}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-x) {
-		@error "No key '#{$size-type-x}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-y) {
-		@error "No key '#{$size-type-y}' on sizes types";
-	}
-
+@mixin implement-gap-size {
 	&-gap {
-		@each $current-size in map-values($sizes) {
-			&--#{$current-size} {
-				@include gap($size-type, $current-size);
+		$parent: &;
+
+		@each $size-type in map-values($sizes-types) {
+			&--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&--#{$current-size} {
+						@include gap($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-x--#{$current-size} {
-				@include gap-x($size-type-x, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-x--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-x--#{$current-size} {
+						@include gap-x($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-y--#{$current-size} {
-				@include gap-y($size-type-y, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-y--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-y--#{$current-size} {
+						@include gap-y($size-type, $current-size);
+					}
+				}
 			}
 		}
 	}

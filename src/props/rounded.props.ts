@@ -1,14 +1,30 @@
-import { SizeType } from '../types';
+import { GroupSizeType, SizeType } from '../types';
 
 export interface RoundedProps {
-	rounded?: SizeType;
-	roundedTop?: SizeType;
-	roundedBottom?: SizeType;
-	roundedLeft?: SizeType;
-	roundedRight?: SizeType;
+	roundedGroup?: GroupSizeType;
+	roundedSize?: SizeType;
 
-	roundedTopLeft?: SizeType;
-	roundedTopRight?: SizeType;
-	roundedBottomRight?: SizeType;
-	roundedBottomLeft?: SizeType;
+	roundedGroupTop?: GroupSizeType;
+	roundedSizeTop?: SizeType;
+
+	roundedGroupBottom?: GroupSizeType;
+	roundedSizeBottom?: SizeType;
+
+	roundedGroupLeft?: GroupSizeType;
+	roundedSizeLeft?: SizeType;
+
+	roundedGroupRight?: GroupSizeType;
+	roundedSizeRight?: SizeType;
+
+	roundedGroupTopLeft?: GroupSizeType;
+	roundedSizeTopLeft?: SizeType;
+
+	roundedGroupTopRight?: GroupSizeType;
+	roundedSizeTopRight?: SizeType;
+
+	roundedGroupBottomRight?: GroupSizeType;
+	roundedSizeBottomRight?: SizeType;
+
+	roundedGroupBottomLeft?: GroupSizeType;
+	roundedSizeBottomLeft?: SizeType;
 }

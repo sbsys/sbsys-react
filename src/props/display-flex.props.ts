@@ -1,6 +1,7 @@
 import { AlignmentType, OrientationsType } from '../types';
 
 export interface DisplayFlexProps {
-	orientations?: OrientationsType;
+	orientation?: OrientationsType;
 	alignment?: AlignmentType;
+	justify?: AlignmentType;
 }

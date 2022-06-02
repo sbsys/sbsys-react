@@ -213,100 +213,125 @@
 	--sbsys-serie-border-bottom-opacity: #{map-get($opacities, $size-type)};
 }
 
-@mixin implement-outline($intensity-type) {
-	@if not map-has-key($intensities, $intensity-type) {
-		@error "No key '#{$intensity-type}' on intensities";
-	}
+@mixin implement-outline-intensity {
+	&-outline {
+		$parent: &;
 
-	&-outl {
+		border-color: transparent;
+		border-style: solid;
+
 		@each $serie in map-values($series) {
-			&--#{$serie} {
-				@include outline(light, $serie, $intensity-type);
+			&--#{$serie}#{$parent} {
+				@each $intensity in map-values($intensities) {
+					&--#{$intensity} {
+						@include outline(light, $serie, $intensity);
 
-				@include theme(dark) {
-					@include outline(dark, $serie, $intensity-type);
+						@include theme(dark) {
+							@include outline(dark, $serie, $intensity);
+						}
+
+						@content;
+					}
 				}
-
-				@content;
 			}
 		}
 
 		@each $serie in map-values($series) {
-			&-x--#{$serie} {
-				@include outline-x(light, $serie, $intensity-type);
+			&-x--#{$serie}#{$parent} {
+				@each $intensity in map-values($intensities) {
+					&-x--#{$intensity} {
+						@include outline-x(light, $serie, $intensity);
 
-				@include theme(dark) {
-					@include outline-x(dark, $serie, $intensity-type);
+						@include theme(dark) {
+							@include outline-x(dark, $serie, $intensity);
+						}
+
+						@content;
+					}
 				}
-
-				@content;
 			}
 		}
 
 		@each $serie in map-values($series) {
-			&-left--#{$serie} {
-				@include outline-left(light, $serie, $intensity-type);
+			&-left--#{$serie}#{$parent} {
+				@each $intensity in map-values($intensities) {
+					&-left--#{$intensity} {
+						@include outline-left(light, $serie, $intensity);
 
-				@include theme(dark) {
-					@include outline-left(dark, $serie, $intensity-type);
+						@include theme(dark) {
+							@include outline-left(dark, $serie, $intensity);
+						}
+
+						@content;
+					}
 				}
-
-				@content;
 			}
 		}
 
 		@each $serie in map-values($series) {
-			&-right--#{$serie} {
-				@include outline-right(light, $serie, $intensity-type);
+			&-right--#{$serie}#{$parent} {
+				@each $intensity in map-values($intensities) {
+					&-right--#{$intensity} {
+						@include outline-right(light, $serie, $intensity);
 
-				@include theme(dark) {
-					@include outline-right(dark, $serie, $intensity-type);
+						@include theme(dark) {
+							@include outline-right(dark, $serie, $intensity);
+						}
+
+						@content;
+					}
 				}
-
-				@content;
 			}
 		}
 
 		@each $serie in map-values($series) {
-			&-y--#{$serie} {
-				@include outline-y(light, $serie, $intensity-type);
+			&-y--#{$serie}#{$parent} {
+				@each $intensity in map-values($intensities) {
+					&-y--#{$intensity} {
+						@include outline-y(light, $serie, $intensity);
 
-				@include theme(dark) {
-					@include outline-y(dark, $serie, $intensity-type);
+						@include theme(dark) {
+							@include outline-y(dark, $serie, $intensity);
+						}
+
+						@content;
+					}
 				}
-
-				@content;
 			}
 		}
 
 		@each $serie in map-values($series) {
-			&-top--#{$serie} {
-				@include outline-top(light, $serie, $intensity-type);
+			&-top--#{$serie}#{$parent} {
+				@each $intensity in map-values($intensities) {
+					&-top--#{$intensity} {
+						@include outline-top(light, $serie, $intensity);
 
-				@include theme(dark) {
-					@include outline-top(dark, $serie, $intensity-type);
+						@include theme(dark) {
+							@include outline-top(dark, $serie, $intensity);
+						}
+
+						@content;
+					}
 				}
-
-				@content;
 			}
 		}
 
 		@each $serie in map-values($series) {
-			&-bottom--#{$serie} {
-				@include outline-bottom(light, $serie, $intensity-type);
+			&-bottom--#{$serie}#{$parent} {
+				@each $intensity in map-values($intensities) {
+					&-bottom--#{$intensity} {
+						@include outline-bottom(light, $serie, $intensity);
 
-				@include theme(dark) {
-					@include outline-bottom(dark, $serie, $intensity-type);
+						@include theme(dark) {
+							@include outline-bottom(dark, $serie, $intensity);
+						}
+
+						@content;
+					}
 				}
-
-				@content;
 			}
 		}
-	}
-}
 
-@mixin implement-outline-opacity {
-	&-outl {
 		@each $size in map-values($sizes) {
 			&--#{$size} {
 				@include outline-opacity($size);

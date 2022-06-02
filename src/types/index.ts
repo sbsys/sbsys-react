@@ -9,3 +9,4 @@ export * from './propagation.type';
 export * from './orientations.type';
 export * from './intensity.type';
 export * from './position.type';
+export * from './group-size.type';

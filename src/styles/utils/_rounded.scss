@@ -111,111 +111,98 @@
 	border-bottom-left-radius: var(--sbsys-size-#{$size-type}-#{$size});
 }
 
-@mixin implement-rounded(
-	$size-type,
-	$size-type-left,
-	$size-type-right,
-	$size-type-top,
-	$size-type-bottom,
-	$size-type-top-left,
-	$size-type-top-right,
-	$size-type-bottom-right,
-	$size-type-bottom-left
-) {
-	@if not map-has-key($sizes-types, $size-type) {
-		@error "No key '#{$size-type}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-left) {
-		@error "No key '#{$size-type-left}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-right) {
-		@error "No key '#{$size-type-right}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-top) {
-		@error "No key '#{$size-type-top}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-bottom) {
-		@error "No key '#{$size-type-bottom}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-top-left) {
-		@error "No key '#{$size-type-top-left}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-top-right) {
-		@error "No key '#{$size-type-top-right}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-bottom-right) {
-		@error "No key '#{$size-type-bottom-right}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-bottom-left) {
-		@error "No key '#{$size-type-bottom-left}' on sizes types";
-	}
-
+@mixin implement-rounded-size {
 	&-rounded {
-		@each $current-size in map-values($sizes) {
-			&--#{$current-size} {
-				@include rounded($size-type, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&--#{$current-size} {
+						@include rounded($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-left--#{$current-size} {
-				@include rounded-left($size-type-left, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-left--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-left--#{$current-size} {
+						@include rounded-left($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-right--#{$current-size} {
-				@include rounded-right($size-type-right, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-right--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-right--#{$current-size} {
+						@include rounded-right($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-top--#{$current-size} {
-				@include rounded-top($size-type-top, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-top--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-top--#{$current-size} {
+						@include rounded-top($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-bottom--#{$current-size} {
-				@include rounded-bottom($size-type-bottom, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-bottom--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-bottom--#{$current-size} {
+						@include rounded-bottom($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-top-left--#{$current-size} {
-				@include rounded-top-left($size-type-top-left, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-top-left--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-top-left--#{$current-size} {
+						@include rounded-top-left($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-top-right--#{$current-size} {
-				@include rounded-top-right($size-type-top-right, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-top-right--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-top-right--#{$current-size} {
+						@include rounded-top-right($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-bottom-right--#{$current-size} {
-				@include rounded-bottom-right(
-					$size-type-bottom-right,
-					$current-size
-				);
+		@each $size-type in map-values($sizes-types) {
+			&-bottom-right--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-bottom-right--#{$current-size} {
+						@include rounded-bottom-right(
+							$size-type,
+							$current-size
+						);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-bottom-left--#{$current-size} {
-				@include rounded-bottom-left(
-					$size-type-bottom-left,
-					$current-size
-				);
+		@each $size-type in map-values($sizes-types) {
+			&-bottom-left--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-bottom-left--#{$current-size} {
+						@include rounded-bottom-left($size-type, $current-size);
+					}
+				}
 			}
 		}
 	}

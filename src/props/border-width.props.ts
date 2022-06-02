@@ -1,11 +1,24 @@
-import { SizeType } from '../types';
+import { GroupSizeType, SizeType } from '../types';
 
 export interface BorderWidthProps {
-	borderWidth?: SizeType;
-	borderWidthY?: SizeType;
-	borderWidthTop?: SizeType;
-	borderWidthBottom?: SizeType;
-	borderWidthX?: SizeType;
-	borderWidthLeft?: SizeType;
-	borderWidthRight?: SizeType;
+	borderGroup?: GroupSizeType;
+	borderSize?: SizeType;
+
+	borderGroupY?: GroupSizeType;
+	borderSizeY?: SizeType;
+
+	borderGroupTop?: GroupSizeType;
+	borderSizeTop?: SizeType;
+
+	borderGroupBottom?: GroupSizeType;
+	borderSizeBottom?: SizeType;
+
+	borderGroupX?: GroupSizeType;
+	borderSizeX?: SizeType;
+
+	borderGroupLeft?: GroupSizeType;
+	borderSizeLeft?: SizeType;
+
+	borderGroupRight?: GroupSizeType;
+	borderSizeRight?: SizeType;
 }

@@ -85,83 +85,77 @@
 	margin-bottom: var(--sbsys-size-#{$size-type}-#{$size});
 }
 
-@mixin implement-margin(
-	$size-type,
-	$size-type-x,
-	$size-type-left,
-	$size-type-right,
-	$size-type-y,
-	$size-type-top,
-	$size-type-bottom
-) {
-	@if not map-has-key($sizes-types, $size-type) {
-		@error "No key '#{$size-type}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-x) {
-		@error "No key '#{$size-type-x}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-left) {
-		@error "No key '#{$size-type-left}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-right) {
-		@error "No key '#{$size-type-right}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-y) {
-		@error "No key '#{$size-type-y}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-top) {
-		@error "No key '#{$size-type-top}' on sizes types";
-	}
-
-	@if not map-has-key($sizes-types, $size-type-bottom) {
-		@error "No key '#{$size-type-bottom}' on sizes types";
-	}
-
+@mixin implement-margin-size {
 	&-margin {
-		@each $current-size in map-values($sizes) {
-			&--#{$current-size} {
-				@include margin($size-type, $current-size);
+		$parent: &;
+
+		@each $size-type in map-values($sizes-types) {
+			&--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&--#{$current-size} {
+						@include margin($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-x--#{$current-size} {
-				@include margin-x($size-type-x, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-x--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-x--#{$current-size} {
+						@include margin-x($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-left--#{$current-size} {
-				@include margin-left($size-type-left, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-left--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-left--#{$current-size} {
+						@include margin-left($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-right--#{$current-size} {
-				@include margin-right($size-type-right, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-right--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-right--#{$current-size} {
+						@include margin-right($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-y--#{$current-size} {
-				@include margin-y($size-type-y, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-y--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-y--#{$current-size} {
+						@include margin-y($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-top--#{$current-size} {
-				@include margin-top($size-type-top, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-top--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-top--#{$current-size} {
+						@include margin-top($size-type, $current-size);
+					}
+				}
 			}
 		}
 
-		@each $current-size in map-values($sizes) {
-			&-bottom--#{$current-size} {
-				@include margin-bottom($size-type-bottom, $current-size);
+		@each $size-type in map-values($sizes-types) {
+			&-bottom--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&-bottom--#{$current-size} {
+						@include margin-bottom($size-type, $current-size);
+					}
+				}
 			}
 		}
 	}

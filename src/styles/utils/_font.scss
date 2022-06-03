@@ -1,17 +1,27 @@
 /* space font */
-@mixin font($size) {
+@mixin font($size-type, $size) {
+	@if not map-has-key($sizes-types, $size-type) {
+		@error "No key '#{$size-type}' on sizes types";
+	}
+
 	@if not map-has-key($sizes, $size) {
 		@error "No key '#{$size}' on sizes";
 	}
 
-	font-size: var(--sbsys-size-text-#{$size});
+	font-size: var(--sbsys-size-#{$size-type}-#{$size});
 }
 
 @mixin implement-font {
 	&-font {
-		@each $current-size in map-values($sizes) {
-			&--#{$current-size} {
-				@include font($current-size);
+		$parent: &;
+
+		@each $size-type in map-values($sizes-types) {
+			&--#{$size-type}#{$parent} {
+				@each $current-size in map-values($sizes) {
+					&--#{$current-size} {
+						@include font($size-type, $current-size);
+					}
+				}
 			}
 		}
 

@@ -15,4 +15,5 @@ export interface SBSYSLegendElement
 		ChildrenProps<SBSYSLegendParams> {
 	justify?: AlignmentType;
 	hasDots?: boolean;
+	classNameContent?: string;
 }

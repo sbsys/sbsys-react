@@ -227,13 +227,14 @@ export const roundedClassNameBuilder = ({
 };
 
 export const textSizeClassNameBuilder = ({
+	textGroup,
 	textSize,
 	fontWeight,
 	lineHeight,
 }: TextSizeProps): string => {
 	return mergeStrings({
 		values: [
-			modifiers('font', textSize),
+			modifiers('font', textGroup, textSize),
 			modifiers('font-weight', fontWeight),
 			modifiers('line', lineHeight),
 		],

@@ -13,6 +13,7 @@ import { OrientationsType } from '../../types';
 
 const Legend: FC<SBSYSLegendElement> = ({
 	className,
+	classNameContent,
 	justify,
 	hasDots,
 	children,
@@ -40,6 +41,7 @@ const Legend: FC<SBSYSLegendElement> = ({
 						normalizeClassNameBuilder({
 							hasDots,
 						}),
+						classNameContent,
 					],
 				})}>
 				{typeof children === 'function' ? children() : children}

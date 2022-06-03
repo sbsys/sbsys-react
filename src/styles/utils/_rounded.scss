@@ -113,6 +113,8 @@
 
 @mixin implement-rounded-size {
 	&-rounded {
+		$parent: &;
+
 		@each $size-type in map-values($sizes-types) {
 			&--#{$size-type}#{$parent} {
 				@each $current-size in map-values($sizes) {

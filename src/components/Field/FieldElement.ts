@@ -1,9 +1,15 @@
 /* react */
-import { DetailedHTMLProps, FieldsetHTMLAttributes } from 'react';
+import {
+	DetailedHTMLProps,
+	FieldsetHTMLAttributes,
+	LabelHTMLAttributes,
+} from 'react';
 /* props */
 import { ChildrenProps } from '../../props';
 
 interface SBSYSFieldParams {}
+
+interface SBSYSLabelFieldParams {}
 
 export interface SBSYSFieldElement
 	extends Omit<
@@ -14,10 +20,22 @@ export interface SBSYSFieldElement
 			'children'
 		>,
 		ChildrenProps<SBSYSFieldParams> {
-	id?: string;
+	name?: string;
 }
 
-export interface SBSYSFieldContext {}
+export interface SBSYSLabelFieldElement
+	extends Omit<
+			DetailedHTMLProps<
+				LabelHTMLAttributes<HTMLLabelElement>,
+				HTMLLabelElement
+			>,
+			'children'
+		>,
+		ChildrenProps<SBSYSLabelFieldParams> {}
+
+export interface SBSYSFieldContext {
+	name?: string;
+}
 
 export interface SBSYSFieldProvider extends ChildrenProps<SBSYSFieldParams> {
 	value: SBSYSFieldContext;

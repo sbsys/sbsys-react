@@ -1,15 +1,24 @@
 /* react */
 import { FC, memo } from 'react';
+/* context */
+import FieldProvider from './FieldProvider';
 /* props */
 import { SBSYSFieldContext, SBSYSFieldElement } from './FieldElement';
-import FieldProvider from './FieldProvider';
 
-const Field: FC<SBSYSFieldElement> = ({ id, children, ...rest }) => {
-	const context: SBSYSFieldContext = {};
+const Field: FC<SBSYSFieldElement> = ({ name, children, ...rest }) => {
+	/* context props */
+	const context: SBSYSFieldContext = {
+		name,
+	};
+
+	/* component props */
+	const props = {
+		...rest,
+	};
 
 	return (
 		<FieldProvider value={context}>
-			<fieldset {...rest}>
+			<fieldset {...props}>
 				{typeof children === 'function' ? children() : children}
 			</fieldset>
 		</FieldProvider>

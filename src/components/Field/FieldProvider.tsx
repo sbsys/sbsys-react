@@ -3,7 +3,7 @@ import { FC, createContext, memo } from 'react';
 /* props */
 import { SBSYSFieldContext, SBSYSFieldProvider } from './FieldElement';
 
-export const Context = createContext<SBSYSFieldContext | null>(null);
+export const Context = createContext<SBSYSFieldContext>({});
 
 const FieldProvider: FC<SBSYSFieldProvider> = ({ value, children }) => {
 	return (

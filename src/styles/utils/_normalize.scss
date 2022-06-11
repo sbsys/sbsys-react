@@ -5,6 +5,8 @@
 	&::after {
 		-webkit-tap-highlight-color: transparent;
 		@include line(md);
+		box-sizing: border-box;
+		color: inherit;
 		font-size: inherit;
 		font-weight: inherit;
 		margin: 0;
@@ -73,6 +75,22 @@
 
 		&--hidden {
 			overflow: hidden;
+		}
+
+		&--grow {
+			flex-grow: 1;
+		}
+
+		&--pointer {
+			cursor: pointer;
+		}
+
+		&--sans {
+			font-family: 'Roboto', sans-serif;
+		}
+
+		&--serif {
+			font-family: 'Roboto Mono', monospace;
 		}
 	}
 }

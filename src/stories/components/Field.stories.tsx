@@ -1,10 +1,11 @@
 /* storybook */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 /* components */
-import { Field, LabelField, Legend } from '../../components';
+import { Field, Legend } from '../../components';
 /* styles */
 import '../../index.scss';
-import { AlignmentType } from '../../types';
+import { AlignmentType, InputType, IntensityType, SerieType, SizeType } from '../../types';
+import { fillClassNameBuilder } from '../../utils';
 
 export default {
 	title: 'Components/Field',
@@ -19,21 +20,22 @@ const Template: ComponentStory<typeof Field> = args => <Field {...args} />;
 export const Main = Template.bind({});
 Main.args = {
 	name: 'ID',
-	children: () => (
-		<>
-			<LabelField>
-				<Legend hasDots justify={AlignmentType.CENTER}>
-					Title
-				</Legend>
-			</LabelField>
-
-			<input
-				type="text"
-				id="ID"
-				name="ID"
-				style={{ height: '2rem' }}
-				onChange={e => console.log(e.target.name || e.target.id)}
-			/>
-		</>
+	type: InputType.PASSWORD,
+	label: () => (
+		<Legend hasDots justify={AlignmentType.CENTER}>
+			Title
+		</Legend>
 	),
+	hint: (
+		<Legend hasDots justify={AlignmentType.END}>
+			Hint
+		</Legend>
+	),
+	props: {
+		className: fillClassNameBuilder({
+			fillIntensity: IntensityType.MAIN,
+			fillOpacity: SizeType.XL,
+			fillSerie: SerieType.PRIMARY
+		})
+	}
 };

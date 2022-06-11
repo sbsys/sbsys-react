@@ -2,26 +2,32 @@
 import {
 	DetailedHTMLProps,
 	FieldsetHTMLAttributes,
+	InputHTMLAttributes,
 	LabelHTMLAttributes,
+	ReactNode,
 } from 'react';
 /* props */
-import { ChildrenProps } from '../../props';
+import { ChildrenProps, ContentLayoutProps } from '../../props';
+/* types */
+import { InputType } from '../../types';
 
-interface SBSYSFieldParams {}
-
-interface SBSYSLabelFieldParams {}
-
-export interface SBSYSFieldElement
-	extends Omit<
-			DetailedHTMLProps<
-				FieldsetHTMLAttributes<HTMLFieldSetElement>,
-				HTMLFieldSetElement
-			>,
-			'children'
-		>,
-		ChildrenProps<SBSYSFieldParams> {
+/* field wrapper */
+export interface SBSYSFieldElement<T, LABEL = null, HINT = null>
+	extends DetailedHTMLProps<
+		FieldsetHTMLAttributes<HTMLFieldSetElement>,
+		HTMLFieldSetElement
+	> {
 	name?: string;
+	type?: InputType;
+
+	label?: ReactNode | ReactNode[] | ((params?: LABEL) => ReactNode);
+	hint?: ReactNode | ReactNode[] | ((params?: HINT) => ReactNode);
+
+	props?: T;
 }
+
+/* field title */
+interface SBSYSLabelFieldParams {}
 
 export interface SBSYSLabelFieldElement
 	extends Omit<
@@ -33,10 +39,10 @@ export interface SBSYSLabelFieldElement
 		>,
 		ChildrenProps<SBSYSLabelFieldParams> {}
 
-export interface SBSYSFieldContext {
-	name?: string;
-}
-
-export interface SBSYSFieldProvider extends ChildrenProps<SBSYSFieldParams> {
-	value: SBSYSFieldContext;
-}
+/* text field */
+export interface SBSYSTextFieldElement
+	extends DetailedHTMLProps<
+			InputHTMLAttributes<HTMLInputElement>,
+			HTMLInputElement
+		>,
+		ContentLayoutProps {}

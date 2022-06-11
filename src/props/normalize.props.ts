@@ -4,4 +4,8 @@ export interface NormalizeProps {
 	isDisabled?: boolean;
 	isInteractable?: boolean;
 	isHidden?: boolean;
+	isGrow?: boolean;
+	isPointer?: boolean;
+	isSans?: boolean;
+	isSerif?: boolean;
 }

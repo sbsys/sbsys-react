@@ -1,7 +1,5 @@
 /* react */
-import { FC, memo, useContext } from 'react';
-/* context */
-import { Context } from './FieldProvider';
+import { FC, memo } from 'react';
 /* props */
 import { SBSYSLabelFieldElement } from './FieldElement';
 /* utils */
@@ -15,25 +13,20 @@ import { OrientationsType } from '../../types';
 
 const LabelField: FC<SBSYSLabelFieldElement> = ({
 	className,
-	htmlFor,
 	children,
 	...rest
 }) => {
-	/* context */
-	const { name } = useContext(Context);
-
 	/* component props */
 	const props = {
 		className: mergeStrings({
 			values: [
+				normalizeClassNameBuilder({ isHidden: true, isPointer: true }),
 				flexClassNameBuilder({
 					orientation: OrientationsType.VERTICAL,
 				}),
-				normalizeClassNameBuilder({ isHidden: true }),
 				className,
 			],
 		}),
-		htmlFor: htmlFor ?? name,
 		...rest,
 	};
 

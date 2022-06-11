@@ -40,14 +40,26 @@ export const normalizeClassNameBuilder = ({
 	isDisabled,
 	isInteractable,
 	isHidden,
+	isGrow,
+	isPointer,
+	isSans,
+	isSerif,
 }: NormalizeProps): string => {
 	return mergeStrings({
 		values: [
-			modifiers('base', isNormalize && 'normalize'),
+			modifiers(
+				'base',
+				isNormalize && 'normalize',
+				isNormalize && 'sans'
+			),
 			modifiers('base', hasDots && 'dots'),
 			modifiers('base', isDisabled && 'disabled'),
 			modifiers('base', isInteractable && 'interactable'),
 			modifiers('base', isHidden && 'hidden'),
+			modifiers('base', isGrow && 'grow'),
+			modifiers('base', isPointer && 'pointer'),
+			modifiers('base', isSans && 'sans'),
+			modifiers('base', isSerif && 'serif'),
 		],
 	});
 };

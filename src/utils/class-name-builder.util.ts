@@ -44,6 +44,7 @@ export const normalizeClassNameBuilder = ({
 	isPointer,
 	isSans,
 	isSerif,
+	isPassword,
 }: NormalizeProps): string => {
 	return mergeStrings({
 		values: [
@@ -60,6 +61,7 @@ export const normalizeClassNameBuilder = ({
 			modifiers('base', isPointer && 'pointer'),
 			modifiers('base', isSans && 'sans'),
 			modifiers('base', isSerif && 'serif'),
+			modifiers('base', isPassword && 'input', isPassword && 'password'),
 		],
 	});
 };

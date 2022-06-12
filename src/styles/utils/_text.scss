@@ -16,6 +16,8 @@
 		var(--sbsys-serie-#{$theme-type}-#{$serie-type}-#{$intensity-type}),
 		var(--sbsys-serie-text-opacity)
 	);
+
+	--sbsys-serie-current-color: --sbsys-serie-#{$theme-type}-#{$serie-type}-#{$intensity-type};
 }
 
 @mixin text-opacity($size-type) {

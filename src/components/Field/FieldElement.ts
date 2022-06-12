@@ -46,3 +46,18 @@ export interface SBSYSTextFieldElement
 			HTMLInputElement
 		>,
 		ContentLayoutProps {}
+
+/* password field */
+export interface SBSYSPasswordFieldElement<SHOW = null, HIDE = null>
+	extends DetailedHTMLProps<
+			InputHTMLAttributes<HTMLInputElement>,
+			HTMLInputElement
+		>,
+		ContentLayoutProps {
+	isPasswordVisible?: boolean;
+	showPassword?: () => void;
+	hidePassword?: () => void;
+
+	showIcon?: ReactNode | ReactNode[] | ((params?: SHOW) => ReactNode);
+	hideIcon?: ReactNode | ReactNode[] | ((params?: HIDE) => ReactNode);
+}

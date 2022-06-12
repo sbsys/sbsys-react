@@ -8,4 +8,5 @@ export interface NormalizeProps {
 	isPointer?: boolean;
 	isSans?: boolean;
 	isSerif?: boolean;
+	isPassword?: boolean;
 }

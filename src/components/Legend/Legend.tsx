@@ -10,6 +10,8 @@ import {
 } from '../../utils';
 /* types */
 import { OrientationsType } from '../../types';
+/* styles */
+import styles from './Legend.module.scss';
 
 const Legend: FC<SBSYSLegendElement> = ({
 	className,
@@ -31,6 +33,7 @@ const Legend: FC<SBSYSLegendElement> = ({
 						orientation: OrientationsType.HORIZONTAL,
 						justify,
 					}),
+					styles.Legend,
 					className,
 				],
 			})}

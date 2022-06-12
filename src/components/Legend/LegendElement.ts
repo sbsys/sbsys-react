@@ -5,14 +5,12 @@ import { ChildrenProps } from '../../props';
 /* types */
 import { AlignmentType } from '../../types';
 
-interface SBSYSLegendParams {}
-
 export interface SBSYSLegendElement
 	extends Omit<
 			DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>,
 			'children'
 		>,
-		ChildrenProps<SBSYSLegendParams> {
+		ChildrenProps<SBSYSLegendElement> {
 	justify?: AlignmentType;
 	hasDots?: boolean;
 	classNameContent?: string;

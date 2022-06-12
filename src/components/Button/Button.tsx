@@ -2,23 +2,13 @@
 import { FC, memo } from 'react';
 /* props */
 import { SBSYSButtonElement } from './ButtonElement';
-/* utils */
-import { mergeStrings, normalizeClassNameBuilder } from '../../utils';
 
-const Button: FC<SBSYSButtonElement> = ({ className, children, ...rest }) => {
+const Button: FC<SBSYSButtonElement> = ({ children, ...rest }) => {
 	return (
-		<button
-			className={mergeStrings({
-				values: [
-					normalizeClassNameBuilder({
-						isNormalize: true,
-						isInteractable: true,
-					}),
-					className,
-				],
-			})}
-			{...rest}>
-			{typeof children === 'function' ? children() : children}
+		<button {...rest}>
+			{typeof children === 'function'
+				? children({ children, ...rest })
+				: children}
 		</button>
 	);
 };

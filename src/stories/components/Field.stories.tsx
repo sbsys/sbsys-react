@@ -4,7 +4,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Field, Legend } from '../../components';
 /* styles */
 import '../../index.scss';
-import { AlignmentType, InputType, IntensityType, SerieType, SizeType } from '../../types';
+import {
+	AlignmentType,
+	InputType,
+	IntensityType,
+	SerieType,
+	SizeType,
+} from '../../types';
 import { fillClassNameBuilder } from '../../utils';
 
 export default {
@@ -35,7 +41,9 @@ Main.args = {
 		className: fillClassNameBuilder({
 			fillIntensity: IntensityType.MAIN,
 			fillOpacity: SizeType.XL,
-			fillSerie: SerieType.PRIMARY
-		})
-	}
+			fillSerie: SerieType.PRIMARY,
+		}),
+		isPasswordVisible: true,
+		placeholder: 'QWERTYUIOPASDFGHJKLÑZXCVBNMQWERTYUIOPASDFGHJKLÑZXCVBNM'
+	},
 };

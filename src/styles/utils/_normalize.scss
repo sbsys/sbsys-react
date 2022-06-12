@@ -92,5 +92,21 @@
 		&--serif {
 			font-family: 'Roboto Mono', monospace;
 		}
+
+		&--input {
+			&::placeholder {
+				color: rgba(var(--sbsys-serie-current-color), 0.1);
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		}
+
+		&--password {
+			&[type='password']::-ms-reveal,
+			&[type='password']::-ms-clear {
+				display: none;
+			}
+		}
 	}
 }

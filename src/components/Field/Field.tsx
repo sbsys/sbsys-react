@@ -1,10 +1,15 @@
 /* react */
 import { FC, memo } from 'react';
 /* props */
-import { SBSYSFieldElement, SBSYSTextFieldElement } from './FieldElement';
+import {
+	SBSYSFieldElement,
+	SBSYSPasswordFieldElement,
+	SBSYSTextFieldElement,
+} from './FieldElement';
 /* components */
 import LabelField from './LabelField';
 import TextField from './TextField';
+import PasswordField from './PasswordField';
 import { ComponentStrategy } from '../ComponentStrategy';
 /* utils */
 import {
@@ -16,20 +21,20 @@ import {
 import { InputType } from '../../types';
 
 /* field strategy */
-type FieldType = SBSYSTextFieldElement;
+type FieldType = SBSYSTextFieldElement | SBSYSPasswordFieldElement;
 
 const fields: Record<InputType, FC> = {
-	text: TextField,
-	password: TextField,
-	email: TextField,
-	number: TextField,
-	radio: TextField,
-	check: TextField,
-	file: TextField,
-	date: TextField,
-	select: TextField,
-	find_select: TextField,
-	find_modal: TextField,
+	[InputType.TEXT]: TextField,
+	[InputType.PASSWORD]: PasswordField,
+	[InputType.EMAIL]: TextField,
+	[InputType.NUMBER]: TextField,
+	[InputType.RADIO]: TextField,
+	[InputType.CHECK]: TextField,
+	[InputType.FILE]: TextField,
+	[InputType.DATE]: TextField,
+	[InputType.SELECT]: TextField,
+	[InputType.FIND_SELECT]: TextField,
+	[InputType.FIND_MODAL]: TextField,
 };
 
 const FieldStrategy = ComponentStrategy<FieldType>({
@@ -76,7 +81,11 @@ const Field: FC<SBSYSFieldElement<FieldType>> = ({
 
 			<FieldStrategy {...strategyProps} />
 
-			{typeof hint === 'function' ? hint() : hint}
+			{hint && (
+				<LabelField htmlFor={name}>
+					{typeof hint === 'function' ? hint() : hint}
+				</LabelField>
+			)}
 		</fieldset>
 	);
 };

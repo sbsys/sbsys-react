@@ -1,5 +1,5 @@
 /* react */
-import { FC, memo, useContext } from 'react';
+import { FC, memo } from 'react';
 /* props */
 import { SBSYSTextFieldElement } from './FieldElement';
 /* layouts */

@@ -2,8 +2,6 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 /* props */
 import { ChildrenProps } from '../../props';
-/* types */
-import { AlignmentType } from '../../types';
 
 export interface SBSYSLegendElement
 	extends Omit<
@@ -11,7 +9,7 @@ export interface SBSYSLegendElement
 			'children'
 		>,
 		ChildrenProps<SBSYSLegendElement> {
-	justify?: AlignmentType;
+	justify?: 'start' | 'center' | 'end';
 	hasDots?: boolean;
 	classNameContent?: string;
 }

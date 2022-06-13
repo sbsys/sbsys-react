@@ -18,4 +18,6 @@ const Template: ComponentStory<typeof Legend> = args => <Legend {...args} />;
 export const Main = Template.bind({});
 Main.args = {
 	children: 'QWERTYUIOP',
+	justify: 'center',
+	hasDots: true,
 };

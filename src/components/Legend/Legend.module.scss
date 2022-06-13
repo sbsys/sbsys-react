@@ -1,4 +1,27 @@
 @import '../../styles/index';
 
 .Legend {
+	@include normalize;
+	display: flex;
+	flex-direction: row;
+	font-family: 'Roboto', sans-serif;
+	overflow: hidden;
+
+	&.Start {
+		justify-content: start;
+	}
+
+	&.Center {
+		justify-content: center;
+	}
+
+	&.End {
+		justify-content: end;
+	}
+
+	&Dots {
+		& > span {
+			@include dots;
+		}
+	}
 }

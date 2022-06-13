@@ -1,0 +1,40 @@
+@import '../../styles/index';
+
+.Field {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+}
+
+.TextField {
+	@include normalize {
+		border-width: 0;
+		padding: 0.25rem;
+		background-color: transparent;
+		flex-grow: 1;
+	}
+}
+
+.PasswordField {
+	@extend .TextField;
+	&[type='password'] {
+		letter-spacing: 0.25rem;
+
+		&::placeholder {
+			letter-spacing: 0;
+		}
+	}
+
+	&[type='password']::-ms-reveal,
+	&[type='password']::-ms-clear {
+		display: none;
+	}
+}
+
+.PasswordIcon {
+	@include interactable;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

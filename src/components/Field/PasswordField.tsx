@@ -5,30 +5,16 @@ import { SBSYSPasswordFieldElement } from './FieldElement';
 /* layouts */
 import { FieldLayout } from '../../layouts';
 /* utils */
-import {
-	borderClassNameBuilder,
-	fillClassNameBuilder,
-	flexClassNameBuilder,
-	mergeStrings,
-	normalizeClassNameBuilder,
-	paddingClassNameBuilder,
-	textClassNameBuilder,
-} from '../../utils';
-/* types */
-import {
-	AlignmentType,
-	GroupSizeType,
-	InputType,
-	IntensityType,
-	OrientationsType,
-	SerieType,
-	SizeType,
-} from '../../types';
+import { mergeStrings } from '../../utils';
+/* styles */
+import styles from './Field.module.scss';
 
 const PasswordField: FC<SBSYSPasswordFieldElement> = ({
 	className,
 	before,
 	after,
+	classNameContent,
+	classNameIcon,
 	isPasswordVisible,
 	showPassword,
 	hidePassword,
@@ -42,45 +28,17 @@ const PasswordField: FC<SBSYSPasswordFieldElement> = ({
 		after,
 	};
 
-	const props = {
-		type: isPasswordVisible ? InputType.TEXT : InputType.PASSWORD,
+	const contentProps = {
 		className: mergeStrings({
-			values: [
-				normalizeClassNameBuilder({
-					isNormalize: true,
-					isGrow: true,
-					isPassword: true,
-				}),
-				borderClassNameBuilder({}),
-				paddingClassNameBuilder({
-					paddingGroup: GroupSizeType.SPLIT,
-					paddingSize: SizeType.SM,
-				}),
-				fillClassNameBuilder({}),
-				textClassNameBuilder({
-					textIntensity: IntensityType.MAIN,
-					textOpacity: SizeType.XL,
-					textSerie: SerieType.TEXT
-				})
-			],
+			values: [styles.PasswordField, classNameContent],
 		}),
+		type: isPasswordVisible ? 'text' : 'password',
 		...rest,
 	};
 
 	const iconProps = {
 		className: mergeStrings({
-			values: [
-				normalizeClassNameBuilder({
-					isNormalize: true,
-					isInteractable: true,
-					isPointer: true,
-				}),
-				flexClassNameBuilder({
-					orientation: OrientationsType.VERTICAL,
-					alignment: AlignmentType.CENTER,
-					justify: AlignmentType.CENTER,
-				}),
-			],
+			values: [styles.PasswordIcon, classNameIcon],
 		}),
 		onClick: isPasswordVisible ? hidePassword : showPassword,
 		children: isPasswordVisible
@@ -94,7 +52,7 @@ const PasswordField: FC<SBSYSPasswordFieldElement> = ({
 
 	return (
 		<FieldLayout {...wrapperProps}>
-			<input {...props} />
+			<input {...contentProps} />
 
 			<i {...iconProps} />
 		</FieldLayout>

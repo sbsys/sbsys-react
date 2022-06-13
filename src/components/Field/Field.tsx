@@ -1,93 +1,49 @@
 /* react */
 import { FC, memo } from 'react';
 /* props */
-import {
-	SBSYSFieldElement,
-	SBSYSPasswordFieldElement,
-	SBSYSTextFieldElement,
-} from './FieldElement';
+import { FieldType, StrategyType } from './FieldElement';
 /* components */
-import LabelField from './LabelField';
 import TextField from './TextField';
 import PasswordField from './PasswordField';
-import { ComponentStrategy } from '../ComponentStrategy';
+/* strategy */
+import { ComponentStrategy, SBSYSStrategyElement } from '../ComponentStrategy';
 /* utils */
-import {
-	borderClassNameBuilder,
-	mergeStrings,
-	normalizeClassNameBuilder,
-} from '../../utils';
-/* types */
-import { InputType } from '../../types';
+import { mergeStrings } from '../../utils';
+/* styles */
+import styles from './Field.module.scss';
 
-/* field strategy */
-type FieldType = SBSYSTextFieldElement | SBSYSPasswordFieldElement;
-
-const fields: Record<InputType, FC> = {
-	[InputType.TEXT]: TextField,
-	[InputType.PASSWORD]: PasswordField,
-	[InputType.EMAIL]: TextField,
-	[InputType.NUMBER]: TextField,
-	[InputType.RADIO]: TextField,
-	[InputType.CHECK]: TextField,
-	[InputType.FILE]: TextField,
-	[InputType.DATE]: TextField,
-	[InputType.SELECT]: TextField,
-	[InputType.FIND_SELECT]: TextField,
-	[InputType.FIND_MODAL]: TextField,
+const fieldStrategy: Record<StrategyType, FC> = {
+	text: memo(props => <TextField type="text" {...props} />),
+	password: PasswordField,
+	email: memo(props => <TextField type="email" {...props} />),
+	number: TextField,
+	radio: TextField,
+	check: TextField,
+	file: TextField,
+	date: TextField,
+	select: TextField,
+	find_select: TextField,
+	find_modal: TextField,
 };
 
-const FieldStrategy = ComponentStrategy<FieldType>({
-	componentStrategy: fields,
+const FieldStrategy = ComponentStrategy<FieldType, StrategyType>({
+	componentStrategy: fieldStrategy,
 	DefaultComponent: TextField,
 });
 
-const Field: FC<SBSYSFieldElement<FieldType>> = ({
+const Field: FC<SBSYSStrategyElement<FieldType, StrategyType>> = ({
 	className,
-	name,
-	type,
-	label,
-	hint,
-	props,
 	...rest
 }) => {
-	const wrapperProps = {
-		...rest,
+	const props = {
 		className: mergeStrings({
-			values: [
-				normalizeClassNameBuilder({
-					isNormalize: true,
-				}),
-				borderClassNameBuilder({}),
-				className,
-			],
+			values: [styles.Field, className],
 		}),
+		autoComplete: 'off',
+		...rest,
 	};
 
-	const strategyProps = {
-		strategy: type,
-		name,
-		id: name,
-		...props,
-	};
-
-	return (
-		<fieldset {...wrapperProps}>
-			{label && (
-				<LabelField htmlFor={name}>
-					{typeof label === 'function' ? label() : label}
-				</LabelField>
-			)}
-
-			<FieldStrategy {...strategyProps} />
-
-			{hint && (
-				<LabelField htmlFor={name}>
-					{typeof hint === 'function' ? hint() : hint}
-				</LabelField>
-			)}
-		</fieldset>
-	);
+	return <FieldStrategy {...props} />;
 };
 
 export default memo(Field);

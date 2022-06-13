@@ -1,43 +1,23 @@
 /* react */
-import {
-	DetailedHTMLProps,
-	FieldsetHTMLAttributes,
-	InputHTMLAttributes,
-	LabelHTMLAttributes,
-	ReactNode,
-} from 'react';
+import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
 /* props */
-import { ChildrenProps, ContentLayoutProps } from '../../props';
-/* types */
-import { InputType } from '../../types';
+import { ContentLayoutProps } from '../../props';
 
-/* field wrapper */
-export interface SBSYSFieldElement<T, LABEL = null, HINT = null>
-	extends DetailedHTMLProps<
-		FieldsetHTMLAttributes<HTMLFieldSetElement>,
-		HTMLFieldSetElement
-	> {
-	name?: string;
-	type?: InputType;
+/* field strategy */
+export type FieldType = SBSYSTextFieldElement | SBSYSPasswordFieldElement;
 
-	label?: ReactNode | ReactNode[] | ((params?: LABEL) => ReactNode);
-	hint?: ReactNode | ReactNode[] | ((params?: HINT) => ReactNode);
-
-	props?: T;
-}
-
-/* field title */
-interface SBSYSLabelFieldParams {}
-
-export interface SBSYSLabelFieldElement
-	extends Omit<
-			DetailedHTMLProps<
-				LabelHTMLAttributes<HTMLLabelElement>,
-				HTMLLabelElement
-			>,
-			'children'
-		>,
-		ChildrenProps<SBSYSLabelFieldParams> {}
+export type StrategyType =
+	| 'text'
+	| 'password'
+	| 'email'
+	| 'number'
+	| 'radio'
+	| 'check'
+	| 'file'
+	| 'date'
+	| 'select'
+	| 'find_select'
+	| 'find_modal';
 
 /* text field */
 export interface SBSYSTextFieldElement
@@ -45,19 +25,27 @@ export interface SBSYSTextFieldElement
 			InputHTMLAttributes<HTMLInputElement>,
 			HTMLInputElement
 		>,
-		ContentLayoutProps {}
+		ContentLayoutProps {
+	classNameContent?: string;
+}
 
 /* password field */
-export interface SBSYSPasswordFieldElement<SHOW = null, HIDE = null>
-	extends DetailedHTMLProps<
-			InputHTMLAttributes<HTMLInputElement>,
-			HTMLInputElement
+export interface SBSYSPasswordFieldElement
+	extends Omit<
+			DetailedHTMLProps<
+				InputHTMLAttributes<HTMLInputElement>,
+				HTMLInputElement
+			>,
+			'type'
 		>,
 		ContentLayoutProps {
+	classNameContent?: string;
+	classNameIcon?: string;
+
 	isPasswordVisible?: boolean;
 	showPassword?: () => void;
 	hidePassword?: () => void;
 
-	showIcon?: ReactNode | ReactNode[] | ((params?: SHOW) => ReactNode);
-	hideIcon?: ReactNode | ReactNode[] | ((params?: HIDE) => ReactNode);
+	showIcon?: ReactNode | ReactNode[] | (() => ReactNode);
+	hideIcon?: ReactNode | ReactNode[] | (() => ReactNode);
 }

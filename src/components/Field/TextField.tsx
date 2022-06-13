@@ -5,18 +5,13 @@ import { SBSYSTextFieldElement } from './FieldElement';
 /* layouts */
 import { FieldLayout } from '../../layouts';
 /* utils */
-import {
-	borderClassNameBuilder,
-	fillClassNameBuilder,
-	mergeStrings,
-	normalizeClassNameBuilder,
-	paddingClassNameBuilder,
-} from '../../utils';
-/* types */
-import { GroupSizeType, InputType, SizeType } from '../../types';
+import { mergeStrings } from '../../utils';
+/* styles */
+import styles from './Field.module.scss';
 
 const TextField: FC<SBSYSTextFieldElement> = ({
 	className,
+	classNameContent,
 	before,
 	after,
 	...rest
@@ -27,28 +22,16 @@ const TextField: FC<SBSYSTextFieldElement> = ({
 		after,
 	};
 
-	const props = {
-		type: InputType.TEXT,
+	const contentProps = {
 		className: mergeStrings({
-			values: [
-				normalizeClassNameBuilder({
-					isNormalize: true,
-					isGrow: true,
-				}),
-				borderClassNameBuilder({}),
-				paddingClassNameBuilder({
-					paddingGroup: GroupSizeType.SPLIT,
-					paddingSize: SizeType.SM,
-				}),
-				fillClassNameBuilder({}),
-			],
+			values: [styles.TextField, classNameContent],
 		}),
 		...rest,
 	};
 
 	return (
 		<FieldLayout {...wrapperProps}>
-			<input {...props} />
+			<input {...contentProps} />
 		</FieldLayout>
 	);
 };

@@ -1,9 +1,10 @@
 /* import */
 import Field from './Field';
-import LabelField from './LabelField';
 import TextField from './TextField';
+import PasswordField from './PasswordField';
+import NumberField from './NumberField';
 
 /* export named */
-export { Field, LabelField, TextField };
+export { Field, TextField, PasswordField, NumberField };
 
 export * from './FieldElement';

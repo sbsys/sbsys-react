@@ -30,7 +30,7 @@ const PasswordField: FC<SBSYSPasswordFieldElement> = ({
 
 	const contentProps = {
 		className: mergeStrings({
-			values: [styles.PasswordField, classNameContent],
+			values: [styles.TextField, classNameContent],
 		}),
 		type: isPasswordVisible ? 'text' : 'password',
 		...rest,

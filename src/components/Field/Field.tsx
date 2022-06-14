@@ -5,6 +5,7 @@ import { FieldType, StrategyType } from './FieldElement';
 /* components */
 import TextField from './TextField';
 import PasswordField from './PasswordField';
+import FileField from './FileField';
 /* strategy */
 import { ComponentStrategy, SBSYSStrategyElement } from '../ComponentStrategy';
 /* utils */
@@ -13,13 +14,15 @@ import { mergeStrings } from '../../utils';
 import styles from './Field.module.scss';
 
 const fieldStrategy: Record<StrategyType, FC> = {
-	text: memo(props => <TextField type="text" {...props} />),
+	text: memo(props => <TextField type="text" inputMode="text" {...props} />),
 	password: PasswordField,
 	email: memo(props => <TextField type="email" {...props} />),
-	number: TextField,
-	radio: TextField,
-	check: TextField,
-	file: TextField,
+	number: memo(props => (
+		<TextField type="number" inputMode="numeric" {...props} />
+	)),
+	radio: memo(props => <TextField type="radio" {...props} />),
+	check: memo(props => <TextField type="checkbox" {...props} />),
+	file: FileField,
 	date: TextField,
 	select: TextField,
 	find_select: TextField,

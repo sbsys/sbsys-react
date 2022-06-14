@@ -18,9 +18,14 @@ const Template: ComponentStory<typeof Field> = args => <Field {...args} />;
 export const Main = Template.bind({});
 Main.args = {
 	name: 'name',
-	strategy: 'password',
-	isPasswordVisible: false,
+	strategy: 'file',
 	placeholder: 'Placeholder...',
-	before: <span>Before</span>,
-	after: <span>After</span>,
+	children: (
+		<span
+			style={{
+				flexGrow: 1,
+			}}>
+			File
+		</span>
+	),
 };

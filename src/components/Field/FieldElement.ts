@@ -1,10 +1,13 @@
 /* react */
 import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
 /* props */
-import { ContentLayoutProps } from '../../props';
+import { ChildrenProps, ContentLayoutProps } from '../../props';
 
 /* field strategy */
-export type FieldType = SBSYSTextFieldElement | SBSYSPasswordFieldElement;
+export type FieldType =
+	| SBSYSFieldElement
+	| SBSYSPasswordFieldElement
+	| SBSYSNumberFieldElement;
 
 export type StrategyType =
 	| 'text'
@@ -20,7 +23,7 @@ export type StrategyType =
 	| 'find_modal';
 
 /* text field */
-export interface SBSYSTextFieldElement
+export interface SBSYSFieldElement
 	extends DetailedHTMLProps<
 			InputHTMLAttributes<HTMLInputElement>,
 			HTMLInputElement
@@ -30,16 +33,7 @@ export interface SBSYSTextFieldElement
 }
 
 /* password field */
-export interface SBSYSPasswordFieldElement
-	extends Omit<
-			DetailedHTMLProps<
-				InputHTMLAttributes<HTMLInputElement>,
-				HTMLInputElement
-			>,
-			'type'
-		>,
-		ContentLayoutProps {
-	classNameContent?: string;
+export interface SBSYSPasswordFieldElement extends SBSYSFieldElement {
 	classNameIcon?: string;
 
 	isPasswordVisible?: boolean;
@@ -49,3 +43,9 @@ export interface SBSYSPasswordFieldElement
 	showIcon?: ReactNode | ReactNode[] | (() => ReactNode);
 	hideIcon?: ReactNode | ReactNode[] | (() => ReactNode);
 }
+
+export interface SBSYSNumberFieldElement extends SBSYSFieldElement {}
+
+export interface SBSYSFileFieldElement
+	extends Omit<SBSYSFieldElement, 'children'>,
+		ChildrenProps {}

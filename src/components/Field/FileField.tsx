@@ -1,5 +1,5 @@
 /* react */
-import { FC, memo } from 'react';
+import { DragEvent, FC, memo, useState } from 'react';
 /* props */
 import { SBSYSFileFieldElement } from './FieldElement';
 /* layouts */
@@ -17,6 +17,26 @@ const FileField: FC<SBSYSFileFieldElement> = ({
 	children,
 	...rest
 }) => {
+	/* states */
+	const [isDragging, setIsDragging] = useState<boolean>(false);
+
+	const handleDrag = (event: DragEvent<HTMLElement>) => {
+		event.preventDefault();
+		event.stopPropagation();
+
+		if (event.type === 'dragenter') setIsDragging(true);
+
+		if (event.type === 'dragleave') setIsDragging(false);
+	};
+
+	const handleDrop = (event: DragEvent<HTMLElement>) => {
+		event.preventDefault();
+		event.stopPropagation();
+
+		setIsDragging(false);
+		console.log(event.dataTransfer);
+	};
+
 	const wrapperProps = {
 		className,
 		before,
@@ -39,8 +59,13 @@ const FileField: FC<SBSYSFileFieldElement> = ({
 
 	return (
 		<FieldLayout {...wrapperProps}>
-			<label {...labelProps}>
+			<label
+				onDragEnter={handleDrag}
+				onDragLeave={handleDrag}
+				onDrop={handleDrop}
+				{...labelProps}>
 				{typeof children === 'function' ? children() : children}
+				{isDragging && 'DRAGGING'}
 			</label>
 
 			<input {...contentProps} />

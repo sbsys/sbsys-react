@@ -1,5 +1,5 @@
 /* react */
-import { DragEvent, FC, memo, useState } from 'react';
+import { forwardRef, memo } from 'react';
 /* props */
 import { SBSYSFileFieldElement } from './FieldElement';
 /* layouts */
@@ -9,68 +9,46 @@ import { mergeStrings } from '../../utils';
 /* styles */
 import styles from './Field.module.scss';
 
-const FileField: FC<SBSYSFileFieldElement> = ({
-	className,
-	classNameContent,
-	before,
-	after,
-	children,
-	...rest
-}) => {
-	/* states */
-	const [isDragging, setIsDragging] = useState<boolean>(false);
+const FileField = forwardRef<HTMLInputElement | null, SBSYSFileFieldElement>(
+	(
+		{ className, classNameContent, before, after, children, ...rest },
+		ref
+	) => {
+		const wrapperProps = {
+			className,
+			before,
+			after,
+		};
 
-	const handleDrag = (event: DragEvent<HTMLElement>) => {
-		event.preventDefault();
-		event.stopPropagation();
+		const labelProps = {
+			className: styles.FileLabel,
+			htmlFor: rest.id || rest.name,
+			onDragEnter: rest.onDragEnter,
+			onDragOver: rest.onDragOver,
+			onDragLeave: rest.onDragLeave,
+			onDrop: rest.onDrop,
+		};
 
-		if (event.type === 'dragenter') setIsDragging(true);
+		const contentProps = {
+			className: mergeStrings({
+				values: [styles.TextField, classNameContent],
+			}),
+			type: 'file',
+			id: rest.name,
+			ref,
+			...rest,
+		};
 
-		if (event.type === 'dragleave') setIsDragging(false);
-	};
+		return (
+			<FieldLayout {...wrapperProps}>
+				<label {...labelProps}>
+					{typeof children === 'function' ? children() : children}
+				</label>
 
-	const handleDrop = (event: DragEvent<HTMLElement>) => {
-		event.preventDefault();
-		event.stopPropagation();
-
-		setIsDragging(false);
-		console.log(event.dataTransfer);
-	};
-
-	const wrapperProps = {
-		className,
-		before,
-		after,
-	};
-
-	const labelProps = {
-		className: styles.FileLabel,
-		htmlFor: rest.id || rest.name,
-	};
-
-	const contentProps = {
-		className: mergeStrings({
-			values: [styles.TextField, classNameContent],
-		}),
-		type: 'file',
-		id: rest.name,
-		...rest,
-	};
-
-	return (
-		<FieldLayout {...wrapperProps}>
-			<label
-				onDragEnter={handleDrag}
-				onDragLeave={handleDrag}
-				onDrop={handleDrop}
-				{...labelProps}>
-				{typeof children === 'function' ? children() : children}
-				{isDragging && 'DRAGGING'}
-			</label>
-
-			<input {...contentProps} />
-		</FieldLayout>
-	);
-};
+				<input {...contentProps} />
+			</FieldLayout>
+		);
+	}
+);
 
 export default memo(FileField);

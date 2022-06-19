@@ -1,5 +1,5 @@
 /* react */
-import { FC, memo } from 'react';
+import { FC, forwardRef, memo } from 'react';
 /* props */
 import {
 	SBSYSComponentStrategyElement,
@@ -11,13 +11,15 @@ const ComponentStrategy = <PROPS extends object, STRATEGY>({
 	DefaultComponent,
 }: SBSYSComponentStrategyElement<PROPS, STRATEGY>) => {
 	/* component strategy */
-	const Strategy: FC<SBSYSStrategyElement<PROPS, STRATEGY>> = props => {
-		const Component = props.strategy
-			? componentStrategy[props.strategy as unknown as string]
-			: DefaultComponent;
+	const Strategy = forwardRef<any, SBSYSStrategyElement<PROPS, STRATEGY>>(
+		(props, ref) => {
+			const Component = props.strategy
+				? componentStrategy[props.strategy as unknown as string]
+				: DefaultComponent;
 
-		return <Component {...props} />;
-	};
+			return <Component ref={ref} {...props} />;
+		}
+	);
 
 	return memo(Strategy);
 };

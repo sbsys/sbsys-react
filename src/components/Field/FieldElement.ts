@@ -1,5 +1,10 @@
 /* react */
-import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
+import {
+	DetailedHTMLProps,
+	DragEvent,
+	InputHTMLAttributes,
+	ReactNode,
+} from 'react';
 /* props */
 import { ChildrenProps, ContentLayoutProps } from '../../props';
 
@@ -24,9 +29,12 @@ export type StrategyType =
 
 /* text field */
 export interface SBSYSFieldElement
-	extends DetailedHTMLProps<
-			InputHTMLAttributes<HTMLInputElement>,
-			HTMLInputElement
+	extends Omit<
+			DetailedHTMLProps<
+				InputHTMLAttributes<HTMLInputElement>,
+				HTMLInputElement
+			>,
+			'ref'
 		>,
 		ContentLayoutProps {
 	classNameContent?: string;
@@ -47,5 +55,10 @@ export interface SBSYSPasswordFieldElement extends SBSYSFieldElement {
 export interface SBSYSNumberFieldElement extends SBSYSFieldElement {}
 
 export interface SBSYSFileFieldElement
-	extends Omit<SBSYSFieldElement, 'children'>,
-		ChildrenProps {}
+	extends Omit<SBSYSFieldElement, 'children' | 'ref'>,
+		ChildrenProps {
+	onDragEnter?: (event: DragEvent<HTMLElement>) => void;
+	onDragOver?: (event: DragEvent<HTMLElement>) => void;
+	onDragLeave?: (event: DragEvent<HTMLElement>) => void;
+	onDrop?: (event: DragEvent<HTMLElement>) => void;
+}

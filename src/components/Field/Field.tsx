@@ -1,5 +1,5 @@
 /* react */
-import { FC, memo } from 'react';
+import { FC, forwardRef, memo } from 'react';
 /* props */
 import { FieldType, StrategyType } from './FieldElement';
 /* components */
@@ -34,19 +34,20 @@ const FieldStrategy = ComponentStrategy<FieldType, StrategyType>({
 	DefaultComponent: TextField,
 });
 
-const Field: FC<SBSYSStrategyElement<FieldType, StrategyType>> = ({
-	className,
-	...rest
-}) => {
+const Field = forwardRef<
+	HTMLInputElement,
+	SBSYSStrategyElement<FieldType, StrategyType>
+>(({ className, ...rest }, ref) => {
 	const props = {
 		className: mergeStrings({
 			values: [styles.Field, className],
 		}),
 		autoComplete: 'off',
+		ref,
 		...rest,
 	};
 
 	return <FieldStrategy {...props} />;
-};
+});
 
 export default memo(Field);
